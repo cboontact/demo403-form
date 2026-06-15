@@ -1,1 +1,895 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>README — HTML Form ทุกรูปแบบ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --bg:       #f0faf4;
+      --surface:  #ffffff;
+      --dark:     #0d2818;
+      --accent:   #16a34a;
+      --accent2:  #059669;
+      --accent3:  #4ade80;
+      --muted:    #6b7280;
+      --border:   #d1fae5;
+      --code-bg:  #f6fef9;
+      --code-fg:  #1a3a28;
+      --comment:  #6b9e7a;
+      --tag:      #166534;
+      --attr:     #b45309;
+      --str:      #0369a1;
+      --val:      #7c3aed;
+      --prop:     #b45309;
+      --fill:     #dcfce7;
+      --fill-border: #86efac;
+      --radius:   10px;
+    }
 
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Sarabun', sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: linear-gradient(135deg, #064e25 0%, #15803d 50%, #16a34a 100%);
+      color: #fff;
+      padding: 36px 60px;
+      border-bottom: 4px solid #052e16;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    header .icon { font-size: 40px; color: #bbf7d0; }
+    header h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; text-shadow: 0 1px 4px rgba(0,0,0,.3); }
+    header p  { font-size: 13px; color: #bbf7d0; }
+
+    /* ===== LAYOUT ===== */
+    main {
+      max-width: 900px;
+      margin: 36px auto;
+      padding: 0 24px 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .section {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      box-shadow: 0 2px 12px rgba(22,163,74,.08);
+      border: 1px solid #d1fae5;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--dark);
+      border-left: 4px solid var(--accent);
+      padding-left: 12px;
+      margin-bottom: 18px;
+    }
+    .section-title.teal  { border-color: var(--accent2); }
+    .section-title.lime  { border-color: #65a30d; }
+
+    /* ===== CODE BLOCK ===== */
+    .code-wrap { position: relative; margin-bottom: 16px; }
+
+    .code-block {
+      background: var(--code-bg);
+      color: var(--code-fg);
+      border-radius: 8px;
+      border: 1px solid #bbf7d0;
+      padding: 18px 20px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      line-height: 1.9;
+      overflow-x: auto;
+    }
+    .code-block .cm { color: var(--comment); }
+    .code-block .tg { color: var(--tag); }
+    .code-block .at { color: var(--attr); }
+    .code-block .st { color: var(--str); }
+    .code-block .vl { color: var(--val); }
+    .code-block .pr { color: var(--prop); }
+    .code-block .hl { background: #dcfce7; border-radius: 3px; padding: 0 3px; }
+
+    .code-block input.fill {
+      background: var(--fill);
+      border: none;
+      border-bottom: 2px dashed var(--fill-border);
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      color: #14532d;
+      padding: 0 4px;
+      width: var(--w, 120px);
+      outline: none;
+      cursor: text;
+    }
+    .code-block input.fill:focus {
+      background: #bbf7d0;
+      border-bottom-color: #16a34a;
+    }
+
+    /* ===== TABLE ===== */
+    table.attr-table {
+      width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 10px;
+    }
+    table.attr-table th {
+      background: #f0fdf4; color: var(--dark);
+      text-align: left; padding: 10px 14px; font-weight: 700;
+      border-bottom: 2px solid #bbf7d0;
+    }
+    table.attr-table td { padding: 9px 14px; border-bottom: 1px solid #e4f5e9; vertical-align: top; }
+    table.attr-table tr:last-child td { border-bottom: none; }
+    table.attr-table tr:hover td { background: #f0fdf4; }
+
+    code {
+      background: #dcfce7; color: #14532d;
+      border-radius: 4px; padding: 1px 7px;
+      font-size: 12.5px; font-family: 'Courier New', monospace;
+    }
+
+    /* ===== NOTE ===== */
+    .note {
+      background: #f0fdf4; border-left: 4px solid #4ade80;
+      border-radius: 6px; padding: 12px 16px;
+      font-size: 13.5px; margin-top: 14px;
+    }
+    .note.warn {
+      background: #fffbea; border-left-color: #f59e0b;
+    }
+    .note.info {
+      background: #eff6ff; border-left-color: #3b82f6;
+    }
+
+    .type-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .type-chip {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 13px;
+    }
+    .chip-header {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+    .chip-header i { width: 14px; font-size: 13px; }
+    .chip-desc {
+      font-size: 11.5px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .chip-input {
+      width: 100%;
+      padding: 5px 9px;
+      border: 1px solid #86efac;
+      border-radius: 5px;
+      font-family: 'Sarabun', sans-serif;
+      font-size: 13px;
+      background: #fff;
+      outline: none;
+      box-sizing: border-box;
+    }
+    .chip-input:focus { border-color: #16a34a; box-shadow: 0 0 0 2px rgba(22,163,74,.12); }
+
+    /* ===== LIVE FORM PREVIEW ===== */
+    .preview-area {
+      background: #f9fff9;
+      border: 2px dashed #86efac;
+      border-radius: 10px;
+      padding: 24px 28px;
+      margin-top: 14px;
+    }
+    .preview-area .form-title {
+      font-size: 16px; font-weight: 700;
+      color: #15803d; margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #bbf7d0;
+    }
+    .preview-area .field-group {
+      margin-bottom: 16px;
+    }
+    .preview-area label {
+      display: block; font-size: 13px; font-weight: 600;
+      color: #166534; margin-bottom: 5px;
+    }
+    .preview-area input[type="text"],
+    .preview-area input[type="email"],
+    .preview-area input[type="number"],
+    .preview-area input[type="date"],
+    .preview-area input[type="password"],
+    .preview-area input[type="tel"],
+    .preview-area input[type="url"],
+    .preview-area input[type="color"],
+    .preview-area input[type="range"],
+    .preview-area select,
+    .preview-area textarea {
+      width: 100%; padding: 8px 12px;
+      border: 1px solid #86efac; border-radius: 6px;
+      font-family: 'Sarabun', sans-serif; font-size: 14px;
+      background: #fff; outline: none;
+    }
+    .preview-area input:focus,
+    .preview-area select:focus,
+    .preview-area textarea:focus {
+      border-color: #16a34a;
+      box-shadow: 0 0 0 3px rgba(22,163,74,.15);
+    }
+    .preview-area .radio-group,
+    .preview-area .check-group {
+      display: flex; gap: 16px; flex-wrap: wrap; margin-top: 4px;
+    }
+    .preview-area .radio-group label,
+    .preview-area .check-group label {
+      font-weight: 400; color: var(--dark);
+      display: flex; align-items: center; gap: 6px; cursor: pointer;
+    }
+    .preview-area input[type="submit"],
+    .preview-area button[type="reset"] {
+      padding: 9px 24px; border-radius: 6px;
+      font-family: 'Sarabun', sans-serif; font-size: 14px;
+      cursor: pointer; border: none; font-weight: 600;
+    }
+    .preview-area input[type="submit"] {
+      background: #16a34a; color: #fff; margin-right: 10px;
+    }
+    .preview-area button[type="reset"] {
+      background: #f0fdf4; color: #15803d;
+      border: 1px solid #86efac;
+    }
+    .preview-area .two-col {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+    }
+
+    /* ===== LEGEND ===== */
+    .ex-legend {
+      display: flex; gap: 20px; font-size: 13px; margin-bottom: 14px; flex-wrap: wrap;
+    }
+    .ex-legend span { display: flex; align-items: center; gap: 6px; }
+    .dot-fill {
+      display: inline-block; width: 28px; height: 16px;
+      background: var(--fill); border-bottom: 2px dashed var(--fill-border); border-radius: 3px;
+    }
+
+    footer { text-align: center; font-size: 12px; color: #aaa; padding-bottom: 20px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="icon"><i class="fa-solid fa-file-pen"></i></div>
+  <div>
+    <h1>README — HTML Form ทุกรูปแบบ</h1>
+    <p>วิชาการพัฒนาเว็บแอพสมัยใหม่ &nbsp;|&nbsp; โรงเรียนจอมทอง &nbsp;|&nbsp; ม.4–6 &nbsp;|&nbsp; หัวข้อ: &lt;form&gt; &amp; &lt;input&gt; ทุก type</p>
+  </div>
+</header>
+
+<main>
+
+  <!-- 1. ภาพรวม -->
+  <div class="section">
+    <div class="section-title"><i class="fa-solid fa-circle-info" style="color:var(--accent);margin-right:8px;"></i>1. ภาพรวม — &lt;form&gt; คืออะไร</div>
+    <p><strong>HTML Form</strong> คือส่วนที่ใช้รับข้อมูลจากผู้ใช้ — เช่น กรอกชื่อ เลือกเพศ อัปโหลดไฟล์ แล้วส่งข้อมูลไปยัง server หรือ Google Apps Script</p>
+    <div class="code-wrap">
+      <div class="code-block">
+<span class="cm">&lt;!-- โครงสร้างหลักของฟอร์ม --&gt;</span><br>
+&lt;<span class="tg">form</span> <span class="at">action</span>=<span class="st">"URL_ปลายทาง"</span> <span class="at">method</span>=<span class="st">"post"</span>&gt;<br>
+<br>
+&nbsp;&nbsp;<span class="cm">&lt;!-- ส่วนกรอกข้อมูล --&gt;</span><br>
+&nbsp;&nbsp;&lt;<span class="tg">label</span> <span class="at">for</span>=<span class="st">"name"</span>&gt;ชื่อ&lt;/<span class="tg">label</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"text"</span> <span class="at">id</span>=<span class="st">"name"</span> <span class="at">name</span>=<span class="st">"name"</span>&gt;<br>
+<br>
+&nbsp;&nbsp;<span class="cm">&lt;!-- ปุ่มส่ง --&gt;</span><br>
+&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"submit"</span> <span class="at">value</span>=<span class="st">"ส่งข้อมูล"</span>&gt;<br>
+<br>
+&lt;/<span class="tg">form</span>&gt;
+      </div>
+    </div>
+    <table class="attr-table">
+      <tr><th>Attribute</th><th>ค่า</th><th>หมายความว่า</th></tr>
+      <tr><td><code>action="..."</code></td><td>URL</td><td>ปลายทางที่ข้อมูลจะถูกส่งไป เช่น Google Apps Script URL</td></tr>
+      <tr><td><code>method="post"</code></td><td>post / get</td><td><strong>post</strong> = ส่งข้อมูลซ่อนใน body (ปลอดภัยกว่า) | <strong>get</strong> = ต่อท้าย URL</td></tr>
+      <tr><td><code>for="..."</code></td><td>ต้องตรงกับ id ของ input</td><td>เชื่อม <code>&lt;label&gt;</code> กับ <code>&lt;input&gt;</code> — คลิก label แล้วกล่องกรอกจะโฟกัสอัตโนมัติ</td></tr>
+      <tr><td><code>id="..."</code></td><td>ชื่อไม่ซ้ำในหน้า</td><td>ตัวระบุ element สำหรับ CSS และ label</td></tr>
+      <tr><td><code>name="..."</code></td><td>ชื่อตัวแปร</td><td>ชื่อที่ใช้รับข้อมูลฝั่ง server — ต้องมีทุกครั้ง</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. Input ทุก type -->
+  <div class="section">
+    <div class="section-title"><i class="fa-solid fa-table-list" style="color:var(--accent);margin-right:8px;"></i>2. Input ทุก Type — ดูผลลัพธ์จริง</div>
+    <p style="font-size:14px; margin-bottom:18px; color:#445;">เปลี่ยนแค่ <code>type="..."</code> ก็ได้ช่องกรอกรูปแบบต่างกันทันที — ลองใช้งานได้เลย</p>
+    <div class="type-grid">
+
+      <div class="type-chip">
+        <div class="chip-header"><i class="fa-solid fa-font"></i> <code>type="text"</code></div>
+        <p class="chip-desc">กรอกข้อความทั่วไป</p>
+        <input type="text" class="chip-input" placeholder="พิมพ์ข้อความ...">
+      </div>
+
+      <div class="type-chip">
+        <div class="chip-header"><i class="fa-solid fa-envelope"></i> <code>type="email"</code></div>
+        <p class="chip-desc">อีเมล — ตรวจ @ อัตโนมัติ</p>
+        <input type="email" class="chip-input" placeholder="example@gmail.com">
+      </div>
+
+      <div class="type-chip">
+        <div class="chip-header"><i class="fa-solid fa-lock"></i> <code>type="password"</code></div>
+        <p class="chip-desc">รหัสผ่าน — ซ่อนตัวอักษร</p>
+        <input type="password" class="chip-input" placeholder="••••••••">
+      </div>
+
+      <div class="type-chip">
+        <div class="chip-header"><i class="fa-solid fa-hashtag"></i> <code>type="number"</code></div>
+        <p class="chip-desc">ตัวเลข — มีปุ่ม +/−</p>
+        <input type="number" class="chip-input" value="18" min="1" max="120">
+      </div>
+
+      <div class="type-chip">
+        <div class="chip-header"><i class="fa-solid fa-phone"></i> <code>type="tel"</code></div>
+        <p class="chip-desc">เบอร์โทรศัพท์</p>
+        <input type="tel" class="chip-input" placeholder="0812345678">
+      </div>
+
+      <div class="type-chip">
+        <div class="chip-header"><i class="fa-solid fa-link"></i> <code>type="url"</code></div>
+        <p class="chip-desc">URL — ตรวจ https:// อัตโนมัติ</p>
+        <input type="url" class="chip-input" placeholder="https://example.com">
+      </div>
+
+      <div class="type-chip">
+        <div class="chip-header"><i class="fa-solid fa-calendar"></i> <code>type="date"</code></div>
+        <p class="chip-desc">เลือกวันที่ — มี date picker</p>
+        <input type="date" class="chip-input">
+      </div>
+
+      <div class="type-chip">
+        <div class="chip-header"><i class="fa-solid fa-clock"></i> <code>type="time"</code></div>
+        <p class="chip-desc">เลือกเวลา</p>
+        <input type="time" class="chip-input">
+      </div>
+
+      <div class="type-chip">
+        <div class="chip-header"><i class="fa-solid fa-calendar-days"></i> <code>type="datetime-local"</code></div>
+        <p class="chip-desc">วันที่ + เวลาพร้อมกัน</p>
+        <input type="datetime-local" class="chip-input">
+      </div>
+
+      <div class="type-chip">
+        <div class="chip-header"><i class="fa-solid fa-circle-dot"></i> <code>type="radio"</code></div>
+        <p class="chip-desc">เลือกได้ 1 ตัวเลือกจากกลุ่ม</p>
+        <div style="margin-top:8px; display:flex; gap:12px; font-size:13px;">
+          <label style="display:flex;align-items:center;gap:4px;"><input type="radio" name="demo-r"> ชาย</label>
+          <label style="display:flex;align-items:center;gap:4px;"><input type="radio" name="demo-r" checked> หญิง</label>
+        </div>
+      </div>
+
+      <div class="type-chip">
+        <div class="chip-header"><i class="fa-solid fa-square-check"></i> <code>type="checkbox"</code></div>
+        <p class="chip-desc">เลือกได้หลายตัวเลือก</p>
+        <div style="margin-top:8px; display:flex; gap:12px; font-size:13px;">
+          <label style="display:flex;align-items:center;gap:4px;"><input type="checkbox" checked> เว็บ</label>
+          <label style="display:flex;align-items:center;gap:4px;"><input type="checkbox"> AI</label>
+        </div>
+      </div>
+
+      <div class="type-chip">
+        <div class="chip-header"><i class="fa-solid fa-sliders"></i> <code>type="range"</code></div>
+        <p class="chip-desc">แถบเลื่อนตัวเลข</p>
+        <input type="range" class="chip-input" min="1" max="10" value="5" style="padding:0; margin-top:8px;">
+      </div>
+
+      <div class="type-chip">
+        <div class="chip-header"><i class="fa-solid fa-palette"></i> <code>type="color"</code></div>
+        <p class="chip-desc">เลือกสี — มี color picker</p>
+        <input type="color" value="#16a34a" style="margin-top:8px; width:60px; height:34px; border:1px solid #86efac; border-radius:6px; cursor:pointer; padding:2px;">
+      </div>
+
+      <div class="type-chip">
+        <div class="chip-header"><i class="fa-solid fa-upload"></i> <code>type="file"</code></div>
+        <p class="chip-desc">อัปโหลดไฟล์</p>
+        <input type="file" class="chip-input" style="font-size:12px; padding:4px;">
+      </div>
+
+      <div class="type-chip">
+        <div class="chip-header"><i class="fa-solid fa-eye-slash"></i> <code>type="hidden"</code></div>
+        <p class="chip-desc">ซ่อน — ส่งค่าโดยไม่แสดง</p>
+        <div style="margin-top:8px; background:#f0fdf4; border:1px dashed #86efac; border-radius:6px; padding:6px 10px; font-size:12px; color:#6b7280;">
+          <i class="fa-solid fa-eye-slash" style="margin-right:4px;"></i>ไม่แสดงในหน้าเว็บ<br>
+          <span style="font-family:monospace;">value="12345"</span>
+        </div>
+      </div>
+
+      <div class="type-chip">
+        <div class="chip-header"><i class="fa-solid fa-paper-plane"></i> <code>type="submit"</code></div>
+        <p class="chip-desc">ปุ่มส่งฟอร์ม</p>
+        <div style="margin-top:8px;">
+          <input type="submit" value="ส่งข้อมูล" style="background:#16a34a;color:#fff;border:none;padding:6px 16px;border-radius:6px;font-size:13px;cursor:pointer;">
+        </div>
+      </div>
+
+      <div class="type-chip">
+        <div class="chip-header"><i class="fa-solid fa-rotate-left"></i> <code>type="reset"</code></div>
+        <p class="chip-desc">ปุ่มล้างฟอร์ม</p>
+        <div style="margin-top:8px;">
+          <input type="reset" value="ล้างข้อมูล" style="background:#f0fdf4;color:#15803d;border:1px solid #86efac;padding:6px 16px;border-radius:6px;font-size:13px;cursor:pointer;">
+        </div>
+      </div>
+
+      <div class="type-chip">
+        <div class="chip-header"><i class="fa-solid fa-align-left"></i> <code>&lt;textarea&gt;</code></div>
+        <p class="chip-desc">กล่องข้อความหลายบรรทัด</p>
+        <textarea class="chip-input" rows="2" placeholder="พิมพ์ข้อความหลายบรรทัด..." style="resize:vertical;"></textarea>
+      </div>
+
+      <div class="type-chip">
+        <div class="chip-header"><i class="fa-solid fa-chevron-down"></i> <code>&lt;select&gt;</code></div>
+        <p class="chip-desc">dropdown เลือกจากรายการ</p>
+        <select class="chip-input">
+          <option>-- เลือก --</option>
+          <option>ม.4</option>
+          <option>ม.5</option>
+          <option>ม.6</option>
+        </select>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 3. text / email / password -->
+  <div class="section">
+    <div class="section-title"><i class="fa-solid fa-keyboard" style="color:var(--accent);margin-right:8px;"></i>3. text / email / password / tel / url</div>
+    <div class="code-wrap">
+      <div class="code-block">
+<span class="cm">&lt;!-- ข้อความทั่วไป --&gt;</span><br>
+&lt;<span class="tg">label</span> <span class="at">for</span>=<span class="st">"fname"</span>&gt;ชื่อ-นามสกุล&lt;/<span class="tg">label</span>&gt;<br>
+&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"text"</span> <span class="at">id</span>=<span class="st">"fname"</span> <span class="at">name</span>=<span class="st">"fname"</span> <span class="at">placeholder</span>=<span class="st">"เช่น นายสมชาย ใจดี"</span> <span class="at">required</span>&gt;<br>
+<br>
+<span class="cm">&lt;!-- อีเมล --&gt;</span><br>
+&lt;<span class="tg">label</span> <span class="at">for</span>=<span class="st">"email"</span>&gt;อีเมล&lt;/<span class="tg">label</span>&gt;<br>
+&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"email"</span> <span class="at">id</span>=<span class="st">"email"</span> <span class="at">name</span>=<span class="st">"email"</span> <span class="at">placeholder</span>=<span class="st">"example@gmail.com"</span>&gt;<br>
+<br>
+<span class="cm">&lt;!-- รหัสผ่าน --&gt;</span><br>
+&lt;<span class="tg">label</span> <span class="at">for</span>=<span class="st">"pwd"</span>&gt;รหัสผ่าน&lt;/<span class="tg">label</span>&gt;<br>
+&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"password"</span> <span class="at">id</span>=<span class="st">"pwd"</span> <span class="at">name</span>=<span class="st">"pwd"</span> <span class="at">minlength</span>=<span class="st">"8"</span>&gt;<br>
+<br>
+<span class="cm">&lt;!-- เบอร์โทร --&gt;</span><br>
+&lt;<span class="tg">label</span> <span class="at">for</span>=<span class="st">"tel"</span>&gt;เบอร์โทรศัพท์&lt;/<span class="tg">label</span>&gt;<br>
+&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"tel"</span> <span class="at">id</span>=<span class="st">"tel"</span> <span class="at">name</span>=<span class="st">"tel"</span> <span class="at">pattern</span>=<span class="st">"[0-9]{10}"</span> <span class="at">placeholder</span>=<span class="st">"0812345678"</span>&gt;<br>
+<br>
+<span class="cm">&lt;!-- URL --&gt;</span><br>
+&lt;<span class="tg">label</span> <span class="at">for</span>=<span class="st">"website"</span>&gt;เว็บไซต์&lt;/<span class="tg">label</span>&gt;<br>
+&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"url"</span> <span class="at">id</span>=<span class="st">"website"</span> <span class="at">name</span>=<span class="st">"website"</span> <span class="at">placeholder</span>=<span class="st">"https://example.com"</span>&gt;
+      </div>
+    </div>
+    <table class="attr-table">
+      <tr><th>Attribute</th><th>หน้าที่</th></tr>
+      <tr><td><code>placeholder="..."</code></td><td>ข้อความตัวอย่างสีเทาที่แสดงเมื่อยังไม่กรอก</td></tr>
+      <tr><td><code>required</code></td><td>บังคับกรอก — ส่งฟอร์มไม่ได้ถ้าช่องนี้ว่าง</td></tr>
+      <tr><td><code>minlength="8"</code></td><td>จำนวนตัวอักษรขั้นต่ำ</td></tr>
+      <tr><td><code>pattern="[0-9]{10}"</code></td><td>กำหนดรูปแบบด้วย Regex — ที่นี่คือตัวเลข 10 หลัก</td></tr>
+    </table>
+  </div>
+
+  <!-- 4. number / range / date / time -->
+  <div class="section">
+    <div class="section-title"><i class="fa-solid fa-sliders" style="color:var(--accent);margin-right:8px;"></i>4. number / range / date / time / datetime-local</div>
+    <div class="code-wrap">
+      <div class="code-block">
+<span class="cm">&lt;!-- ตัวเลข --&gt;</span><br>
+&lt;<span class="tg">label</span> <span class="at">for</span>=<span class="st">"age"</span>&gt;อายุ&lt;/<span class="tg">label</span>&gt;<br>
+&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"number"</span> <span class="at">id</span>=<span class="st">"age"</span> <span class="at">name</span>=<span class="st">"age"</span> <span class="at">min</span>=<span class="st">"1"</span> <span class="at">max</span>=<span class="st">"120"</span> <span class="at">value</span>=<span class="st">"18"</span>&gt;<br>
+<br>
+<span class="cm">&lt;!-- แถบเลื่อน --&gt;</span><br>
+&lt;<span class="tg">label</span> <span class="at">for</span>=<span class="st">"score"</span>&gt;ความพึงพอใจ (1–10)&lt;/<span class="tg">label</span>&gt;<br>
+&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"range"</span> <span class="at">id</span>=<span class="st">"score"</span> <span class="at">name</span>=<span class="st">"score"</span> <span class="at">min</span>=<span class="st">"1"</span> <span class="at">max</span>=<span class="st">"10"</span> <span class="at">step</span>=<span class="st">"1"</span>&gt;<br>
+<br>
+<span class="cm">&lt;!-- วันที่ --&gt;</span><br>
+&lt;<span class="tg">label</span> <span class="at">for</span>=<span class="st">"bday"</span>&gt;วันเกิด&lt;/<span class="tg">label</span>&gt;<br>
+&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"date"</span> <span class="at">id</span>=<span class="st">"bday"</span> <span class="at">name</span>=<span class="st">"bday"</span>&gt;<br>
+<br>
+<span class="cm">&lt;!-- เวลา --&gt;</span><br>
+&lt;<span class="tg">label</span> <span class="at">for</span>=<span class="st">"appt"</span>&gt;เวลานัด&lt;/<span class="tg">label</span>&gt;<br>
+&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"time"</span> <span class="at">id</span>=<span class="st">"appt"</span> <span class="at">name</span>=<span class="st">"appt"</span>&gt;<br>
+<br>
+<span class="cm">&lt;!-- วันที่ + เวลา --&gt;</span><br>
+&lt;<span class="tg">label</span> <span class="at">for</span>=<span class="st">"dt"</span>&gt;วันและเวลา&lt;/<span class="tg">label</span>&gt;<br>
+&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"datetime-local"</span> <span class="at">id</span>=<span class="st">"dt"</span> <span class="at">name</span>=<span class="st">"dt"</span>&gt;
+      </div>
+    </div>
+    <table class="attr-table">
+      <tr><th>Attribute</th><th>หน้าที่</th></tr>
+      <tr><td><code>min="1" max="120"</code></td><td>กำหนดค่าต่ำสุด-สูงสุด สำหรับ number และ range</td></tr>
+      <tr><td><code>step="1"</code></td><td>กำหนดขั้นที่เลื่อนทีละเท่าไร — range ค่าเริ่มต้นคือ 1</td></tr>
+      <tr><td><code>value="18"</code></td><td>ค่าเริ่มต้นที่แสดงในช่อง</td></tr>
+    </table>
+  </div>
+
+  <!-- 5. radio / checkbox -->
+  <div class="section">
+    <div class="section-title"><i class="fa-solid fa-circle-dot" style="color:var(--accent);margin-right:8px;"></i>5. radio &amp; checkbox</div>
+    <div class="code-wrap">
+      <div class="code-block">
+<span class="cm">&lt;!-- radio: เลือกได้ 1 ตัว (name ต้องเหมือนกันทุกตัว) --&gt;</span><br>
+&lt;<span class="tg">p</span>&gt;เพศ&lt;/<span class="tg">p</span>&gt;<br>
+&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"radio"</span> <span class="at">id</span>=<span class="st">"male"</span> <span class="at">name</span>=<span class="st">"gender"</span> <span class="at">value</span>=<span class="st">"male"</span>&gt;<br>
+&lt;<span class="tg">label</span> <span class="at">for</span>=<span class="st">"male"</span>&gt;ชาย&lt;/<span class="tg">label</span>&gt;<br>
+<br>
+&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"radio"</span> <span class="at">id</span>=<span class="st">"female"</span> <span class="at">name</span>=<span class="st">"gender"</span> <span class="at">value</span>=<span class="st">"female"</span>&gt;<br>
+&lt;<span class="tg">label</span> <span class="at">for</span>=<span class="st">"female"</span>&gt;หญิง&lt;/<span class="tg">label</span>&gt;<br>
+<br>
+&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"radio"</span> <span class="at">id</span>=<span class="st">"other"</span> <span class="at">name</span>=<span class="st">"gender"</span> <span class="at">value</span>=<span class="st">"other"</span>&gt;<br>
+&lt;<span class="tg">label</span> <span class="at">for</span>=<span class="st">"other"</span>&gt;ไม่ระบุ&lt;/<span class="tg">label</span>&gt;<br>
+<br>
+<span class="cm">&lt;!-- checkbox: เลือกได้หลายตัว (name ต่างกันได้) --&gt;</span><br>
+&lt;<span class="tg">p</span>&gt;ความสนใจ&lt;/<span class="tg">p</span>&gt;<br>
+&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"checkbox"</span> <span class="at">id</span>=<span class="st">"coding"</span> <span class="at">name</span>=<span class="st">"interest"</span> <span class="at">value</span>=<span class="st">"coding"</span>&gt;<br>
+&lt;<span class="tg">label</span> <span class="at">for</span>=<span class="st">"coding"</span>&gt;เขียนโค้ด&lt;/<span class="tg">label</span>&gt;<br>
+<br>
+&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"checkbox"</span> <span class="at">id</span>=<span class="st">"design"</span> <span class="at">name</span>=<span class="st">"interest"</span> <span class="at">value</span>=<span class="st">"design"</span> <span class="at">checked</span>&gt;<br>
+&lt;<span class="tg">label</span> <span class="at">for</span>=<span class="st">"design"</span>&gt;ออกแบบ&lt;/<span class="tg">label</span>&gt;
+      </div>
+    </div>
+    <table class="attr-table">
+      <tr><th>ประเด็น</th><th>radio</th><th>checkbox</th></tr>
+      <tr><td>เลือกได้กี่ตัว</td><td>1 ตัวจากกลุ่ม</td><td>ไม่จำกัด</td></tr>
+      <tr><td><code>name</code></td><td>ต้องเหมือนกันทุกตัวในกลุ่ม</td><td>เหมือนหรือต่างก็ได้</td></tr>
+      <tr><td><code>value</code></td><td>ค่าที่ส่งเมื่อเลือก</td><td>ค่าที่ส่งเมื่อติ๊ก</td></tr>
+      <tr><td><code>checked</code></td><td>ค่าเริ่มต้นที่เลือกไว้</td><td>ค่าเริ่มต้นที่ติ๊กไว้</td></tr>
+    </table>
+    <div class="note">
+      <i class="fa-solid fa-lightbulb" style="color:#16a34a;margin-right:6px;"></i><strong>กฎสำคัญ radio:</strong> ทุกตัวในกลุ่มเดียวกันต้องมี <code>name</code> เหมือนกัน — browser จะจัดให้เลือกได้ทีละตัวอัตโนมัติ
+    </div>
+  </div>
+
+  <!-- 6. select / textarea -->
+  <div class="section">
+    <div class="section-title"><i class="fa-solid fa-bars-staggered" style="color:var(--accent);margin-right:8px;"></i>6. &lt;select&gt; &amp; &lt;textarea&gt;</div>
+    <div class="code-wrap">
+      <div class="code-block">
+<span class="cm">&lt;!-- Dropdown เลือกจากรายการ --&gt;</span><br>
+&lt;<span class="tg">label</span> <span class="at">for</span>=<span class="st">"grade"</span>&gt;ระดับชั้น&lt;/<span class="tg">label</span>&gt;<br>
+&lt;<span class="tg">select</span> <span class="at">id</span>=<span class="st">"grade"</span> <span class="at">name</span>=<span class="st">"grade"</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tg">option</span> <span class="at">value</span>=<span class="st">""</span>&gt;-- เลือกระดับชั้น --&lt;/<span class="tg">option</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tg">option</span> <span class="at">value</span>=<span class="st">"m4"</span>&gt;ม.4&lt;/<span class="tg">option</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tg">option</span> <span class="at">value</span>=<span class="st">"m5"</span> <span class="at">selected</span>&gt;ม.5&lt;/<span class="tg">option</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tg">option</span> <span class="at">value</span>=<span class="st">"m6"</span>&gt;ม.6&lt;/<span class="tg">option</span>&gt;<br>
+&lt;/<span class="tg">select</span>&gt;<br>
+<br>
+<span class="cm">&lt;!-- Dropdown เลือกได้หลายตัว --&gt;</span><br>
+&lt;<span class="tg">select</span> <span class="at">name</span>=<span class="st">"subjects"</span> <span class="at">multiple</span> <span class="at">size</span>=<span class="st">"3"</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tg">option</span> <span class="at">value</span>=<span class="st">"web"</span>&gt;พัฒนาเว็บ&lt;/<span class="tg">option</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tg">option</span> <span class="at">value</span>=<span class="st">"ai"</span>&gt;Generative AI&lt;/<span class="tg">option</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tg">option</span> <span class="at">value</span>=<span class="st">"data"</span>&gt;Data Science&lt;/<span class="tg">option</span>&gt;<br>
+&lt;/<span class="tg">select</span>&gt;<br>
+<br>
+<span class="cm">&lt;!-- กล่องข้อความหลายบรรทัด --&gt;</span><br>
+&lt;<span class="tg">label</span> <span class="at">for</span>=<span class="st">"msg"</span>&gt;ข้อความ&lt;/<span class="tg">label</span>&gt;<br>
+&lt;<span class="tg">textarea</span> <span class="at">id</span>=<span class="st">"msg"</span> <span class="at">name</span>=<span class="st">"msg"</span> <span class="at">rows</span>=<span class="st">"4"</span> <span class="at">cols</span>=<span class="st">"40"</span> <span class="at">placeholder</span>=<span class="st">"พิมพ์ข้อความที่นี่..."</span>&gt;&lt;/<span class="tg">textarea</span>&gt;
+      </div>
+    </div>
+    <table class="attr-table">
+      <tr><th>Attribute</th><th>ใช้กับ</th><th>หน้าที่</th></tr>
+      <tr><td><code>&lt;option value="m4"&gt;</code></td><td>select</td><td>ตัวเลือกแต่ละรายการ — <code>value</code> คือค่าที่ส่ง, ข้อความในแท็กคือที่แสดง</td></tr>
+      <tr><td><code>selected</code></td><td>option</td><td>ตัวเลือกที่แสดงค่าเริ่มต้น</td></tr>
+      <tr><td><code>multiple</code></td><td>select</td><td>เลือกได้หลายตัว (กด Ctrl/Cmd ค้างไว้)</td></tr>
+      <tr><td><code>size="3"</code></td><td>select</td><td>แสดงกี่แถวพร้อมกัน</td></tr>
+      <tr><td><code>rows="4"</code></td><td>textarea</td><td>ความสูงกล่องข้อความ (จำนวนบรรทัด)</td></tr>
+      <tr><td><code>cols="40"</code></td><td>textarea</td><td>ความกว้างกล่องข้อความ</td></tr>
+    </table>
+  </div>
+
+  <!-- 7. file / color / hidden -->
+  <div class="section">
+    <div class="section-title"><i class="fa-solid fa-paperclip" style="color:var(--accent);margin-right:8px;"></i>7. file / color / hidden</div>
+    <div class="code-wrap">
+      <div class="code-block">
+<span class="cm">&lt;!-- อัปโหลดไฟล์ --&gt;</span><br>
+&lt;<span class="tg">label</span> <span class="at">for</span>=<span class="st">"photo"</span>&gt;รูปโปรไฟล์&lt;/<span class="tg">label</span>&gt;<br>
+&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"file"</span> <span class="at">id</span>=<span class="st">"photo"</span> <span class="at">name</span>=<span class="st">"photo"</span> <span class="at">accept</span>=<span class="st">"image/*"</span>&gt;<br>
+<br>
+<span class="cm">&lt;!-- อัปโหลดหลายไฟล์ --&gt;</span><br>
+&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"file"</span> <span class="at">name</span>=<span class="st">"docs"</span> <span class="at">accept</span>=<span class="st">".pdf,.docx"</span> <span class="at">multiple</span>&gt;<br>
+<br>
+<span class="cm">&lt;!-- เลือกสี --&gt;</span><br>
+&lt;<span class="tg">label</span> <span class="at">for</span>=<span class="st">"favcolor"</span>&gt;สีโปรด&lt;/<span class="tg">label</span>&gt;<br>
+&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"color"</span> <span class="at">id</span>=<span class="st">"favcolor"</span> <span class="at">name</span>=<span class="st">"favcolor"</span> <span class="at">value</span>=<span class="st">"#16a34a"</span>&gt;<br>
+<br>
+<span class="cm">&lt;!-- hidden — ส่งค่าที่ซ่อนไว้กับฟอร์ม --&gt;</span><br>
+&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"hidden"</span> <span class="at">name</span>=<span class="st">"userId"</span> <span class="at">value</span>=<span class="st">"12345"</span>&gt;
+      </div>
+    </div>
+    <table class="attr-table">
+      <tr><th>Attribute</th><th>หน้าที่</th></tr>
+      <tr><td><code>accept="image/*"</code></td><td>จำกัดประเภทไฟล์ที่เลือกได้ — <code>image/*</code> คือทุกนามสกุลรูป</td></tr>
+      <tr><td><code>accept=".pdf,.docx"</code></td><td>จำกัดเฉพาะ PDF และ Word</td></tr>
+      <tr><td><code>multiple</code></td><td>เลือกไฟล์ได้หลายไฟล์พร้อมกัน</td></tr>
+      <tr><td><code>type="hidden"</code></td><td>ซ่อนจากผู้ใช้ — ใช้ส่งค่าคงที่เช่น userId หรือ timestamp</td></tr>
+    </table>
+    <div class="note warn">
+      <i class="fa-solid fa-triangle-exclamation" style="color:#d97706;margin-right:6px;"></i><code>type="file"</code> ต้องเพิ่ม <code>enctype="multipart/form-data"</code> ใน <code>&lt;form&gt;</code> ด้วย ไม่งั้นไฟล์จะไม่ถูกส่ง
+    </div>
+  </div>
+
+  <!-- 8. ปุ่ม submit / reset / button -->
+  <div class="section">
+    <div class="section-title"><i class="fa-solid fa-computer-mouse" style="color:var(--accent);margin-right:8px;"></i>8. ปุ่ม — submit / reset / button</div>
+    <div class="code-wrap">
+      <div class="code-block">
+<span class="cm">&lt;!-- ปุ่มส่งฟอร์ม (input) --&gt;</span><br>
+&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"submit"</span> <span class="at">value</span>=<span class="st">"ส่งข้อมูล"</span>&gt;<br>
+<br>
+<span class="cm">&lt;!-- ปุ่มส่งฟอร์ม (button) — ใส่ไอคอนได้ --&gt;</span><br>
+&lt;<span class="tg">button</span> <span class="at">type</span>=<span class="st">"submit"</span>&gt;<i class='fa-solid fa-paper-plane'></i> ส่งข้อมูล&lt;/<span class="tg">button</span>&gt;<br>
+<br>
+<span class="cm">&lt;!-- ปุ่มล้างฟอร์ม --&gt;</span><br>
+&lt;<span class="tg">button</span> <span class="at">type</span>=<span class="st">"reset"</span>&gt;<i class='fa-solid fa-rotate-left'></i> ล้างข้อมูล&lt;/<span class="tg">button</span>&gt;<br>
+<br>
+<span class="cm">&lt;!-- ปุ่มทั่วไป (ไม่ส่งฟอร์ม — ใช้กับ JavaScript) --&gt;</span><br>
+&lt;<span class="tg">button</span> <span class="at">type</span>=<span class="st">"button"</span> <span class="at">onclick</span>=<span class="st">"alert('คลิกแล้ว!')"</span>&gt;ทดสอบ&lt;/<span class="tg">button</span>&gt;
+      </div>
+    </div>
+    <table class="attr-table">
+      <tr><th>Type</th><th>พฤติกรรม</th></tr>
+      <tr><td><code>type="submit"</code></td><td>ส่งฟอร์ม — ตรวจ validation ทุกช่องก่อนส่ง</td></tr>
+      <tr><td><code>type="reset"</code></td><td>ล้างค่าทุกช่องกลับเป็นค่าเริ่มต้น</td></tr>
+      <tr><td><code>type="button"</code></td><td>ปุ่มทั่วไป ไม่มีพฤติกรรมอัตโนมัติ — ใช้กับ JavaScript</td></tr>
+    </table>
+  </div>
+
+  <!-- 9. Validation Attributes -->
+  <div class="section">
+    <div class="section-title teal"><i class="fa-solid fa-shield-halved" style="color:var(--accent2);margin-right:8px;"></i>9. Validation — บังคับกรอกให้ถูกต้อง</div>
+    <div class="code-wrap">
+      <div class="code-block">
+<span class="cm">&lt;!-- บังคับกรอก --&gt;</span><br>
+&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"text"</span> <span class="at">name</span>=<span class="st">"name"</span> <span class="at">required</span>&gt;<br>
+<br>
+<span class="cm">&lt;!-- จำนวนตัวอักษร --&gt;</span><br>
+&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"text"</span> <span class="at">name</span>=<span class="st">"nick"</span> <span class="at">minlength</span>=<span class="st">"2"</span> <span class="at">maxlength</span>=<span class="st">"20"</span>&gt;<br>
+<br>
+<span class="cm">&lt;!-- ช่วงตัวเลข --&gt;</span><br>
+&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"number"</span> <span class="at">name</span>=<span class="st">"score"</span> <span class="at">min</span>=<span class="st">"0"</span> <span class="at">max</span>=<span class="st">"100"</span>&gt;<br>
+<br>
+<span class="cm">&lt;!-- รูปแบบด้วย Regex --&gt;</span><br>
+&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"text"</span> <span class="at">name</span>=<span class="st">"zip"</span> <span class="at">pattern</span>=<span class="st">"[0-9]{5}"</span> <span class="at">title</span>=<span class="st">"รหัสไปรษณีย์ 5 หลัก"</span>&gt;<br>
+<br>
+<span class="cm">&lt;!-- ปิด validation (ส่งได้เลยโดยไม่ตรวจ) --&gt;</span><br>
+&lt;<span class="tg">form</span> <span class="at">novalidate</span>&gt; ... &lt;/<span class="tg">form</span>&gt;
+      </div>
+    </div>
+    <table class="attr-table">
+      <tr><th>Attribute</th><th>หน้าที่</th></tr>
+      <tr><td><code>required</code></td><td>ห้ามว่าง — browser แสดง popup เตือนอัตโนมัติ</td></tr>
+      <tr><td><code>minlength / maxlength</code></td><td>จำนวนตัวอักษรขั้นต่ำ/สูงสุด</td></tr>
+      <tr><td><code>min / max</code></td><td>ค่าตัวเลขขั้นต่ำ/สูงสุด</td></tr>
+      <tr><td><code>pattern="[0-9]{5}"</code></td><td>Regex — ตัวเลข 5 หลัก</td></tr>
+      <tr><td><code>title="..."</code></td><td>ข้อความอธิบายใน popup เตือนเมื่อกรอกผิด pattern</td></tr>
+      <tr><td><code>novalidate</code></td><td>ปิดการตรวจ validation ทั้งหมดในฟอร์มนั้น</td></tr>
+    </table>
+  </div>
+
+  <!-- 10. Preview ฟอร์มสมบูรณ์ -->
+  <div class="section">
+    <div class="section-title"><i class="fa-solid fa-eye" style="color:var(--accent);margin-right:8px;"></i>10. ตัวอย่างผลลัพธ์ — ฟอร์มสมัครสมาชิก</div>
+    <div class="preview-area">
+      <div class="form-title"><i class="fa-solid fa-clipboard-list" style="margin-right:8px;"></i>ฟอร์มสมัครสมาชิก</div>
+      <form onsubmit="alert('ส่งข้อมูลสำเร็จ!'); return false;">
+        <div class="two-col">
+          <div class="field-group">
+            <label for="p-fname">ชื่อ-นามสกุล <span style="color:#dc2626">*</span></label>
+            <input type="text" id="p-fname" placeholder="เช่น นายสมชาย ใจดี" required>
+          </div>
+          <div class="field-group">
+            <label for="p-nick">ชื่อเล่น</label>
+            <input type="text" id="p-nick" placeholder="ชาย">
+          </div>
+        </div>
+        <div class="two-col">
+          <div class="field-group">
+            <label for="p-email">อีเมล <span style="color:#dc2626">*</span></label>
+            <input type="email" id="p-email" placeholder="example@gmail.com" required>
+          </div>
+          <div class="field-group">
+            <label for="p-tel">เบอร์โทรศัพท์</label>
+            <input type="tel" id="p-tel" placeholder="0812345678">
+          </div>
+        </div>
+        <div class="two-col">
+          <div class="field-group">
+            <label for="p-bday">วันเกิด</label>
+            <input type="date" id="p-bday">
+          </div>
+          <div class="field-group">
+            <label for="p-age">อายุ</label>
+            <input type="number" id="p-age" min="1" max="120" value="18">
+          </div>
+        </div>
+        <div class="field-group">
+          <label>เพศ</label>
+          <div class="radio-group">
+            <label><input type="radio" name="p-gender" value="male"> ชาย</label>
+            <label><input type="radio" name="p-gender" value="female" checked> หญิง</label>
+            <label><input type="radio" name="p-gender" value="other"> ไม่ระบุ</label>
+          </div>
+        </div>
+        <div class="field-group">
+          <label for="p-grade">ระดับชั้น</label>
+          <select id="p-grade">
+            <option value="">-- เลือก --</option>
+            <option value="m4">ม.4</option>
+            <option value="m5" selected>ม.5</option>
+            <option value="m6">ม.6</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label>ความสนใจ</label>
+          <div class="check-group">
+            <label><input type="checkbox" value="web" checked> พัฒนาเว็บ</label>
+            <label><input type="checkbox" value="ai"> Generative AI</label>
+            <label><input type="checkbox" value="design"> UI/UX Design</label>
+          </div>
+        </div>
+        <div class="field-group">
+          <label for="p-msg">แนะนำตัวเอง</label>
+          <textarea id="p-msg" rows="3" placeholder="พิมพ์แนะนำตัวเองสั้นๆ..."></textarea>
+        </div>
+        <div class="field-group">
+          <label for="p-photo">รูปโปรไฟล์</label>
+          <input type="file" id="p-photo" accept="image/*">
+        </div>
+        <div style="margin-top:8px;">
+          <button type="submit" style="background:#16a34a;color:#fff;border:none;padding:9px 20px;border-radius:6px;font-family:Sarabun,sans-serif;font-size:14px;font-weight:600;cursor:pointer;margin-right:10px;"><i class="fa-solid fa-paper-plane" style="margin-right:6px;"></i>ส่งข้อมูล</button>
+          <button type="reset" style="background:#f0fdf4;color:#15803d;border:1px solid #86efac;padding:9px 20px;border-radius:6px;font-family:Sarabun,sans-serif;font-size:14px;font-weight:600;cursor:pointer;"><i class="fa-solid fa-rotate-left" style="margin-right:6px;"></i>ล้างข้อมูล</button>
+        </div>
+      </form>
+    </div>
+    <div class="note"><i class="fa-solid fa-lightbulb" style="color:#16a34a;margin-right:6px;"></i>ลองกรอกข้อมูลแล้วกดปุ่มส่ง — browser จะตรวจช่องที่มี <code>required</code> ให้อัตโนมัติ</div>
+  </div>
+
+  <!-- 11. แบบฝึกหัด A: ฟอร์มสมัครสมาชิก -->
+  <div class="section">
+    <div class="section-title lime"><i class="fa-solid fa-pencil" style="color:#65a30d;margin-right:8px;"></i>11. แบบฝึกหัด A — ฟอร์มสมัครสมาชิกชมรม</div>
+    <p style="font-size:14px; margin-bottom:14px; color:#445;">สร้างฟอร์มสมัครสมาชิกชมรมที่ชอบ — เติมช่องสีเขียวให้ครบ</p>
+    <div class="ex-legend">
+      <span><span class="dot-fill"></span> ช่องที่ต้องพิมพ์เอง</span>
+    </div>
+    <div class="code-wrap">
+      <div class="code-block">
+&lt;!DOCTYPE html&gt;<br>
+&lt;<span class="tg">html</span>&gt;&lt;<span class="tg">head</span>&gt;&lt;<span class="tg">base</span> <span class="at">target</span>=<span class="st">"_top"</span>&gt;&lt;/<span class="tg">head</span>&gt;<br>
+&lt;<span class="tg">body</span>&gt;<br>
+<br>
+&lt;<span class="tg">h2</span>&gt;<input class="fill" style="--w:200px" placeholder="ชื่อชมรม เช่น ชมรมคอมพิวเตอร์">&lt;/<span class="tg">h2</span>&gt;<br>
+<br>
+&lt;<span class="tg">form</span> <span class="at">action</span>=<span class="st">"<input class="fill" style="--w:200px" placeholder="URL ปลายทาง">"</span> <span class="at">method</span>=<span class="st">"post"</span>&gt;<br>
+<br>
+&nbsp;&nbsp;<span class="cm">&lt;!-- ชื่อ --&gt;</span><br>
+&nbsp;&nbsp;&lt;<span class="tg">label</span> <span class="at">for</span>=<span class="st">"name"</span>&gt;ชื่อ-นามสกุล&lt;/<span class="tg">label</span>&gt;&lt;<span class="tg">br</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"text"</span> <span class="at">id</span>=<span class="st">"name"</span> <span class="at">name</span>=<span class="st">"name"</span> <span class="at">placeholder</span>=<span class="st">"<input class="fill" style="--w:130px" placeholder="ข้อความ placeholder">"</span> <span class="at">required</span>&gt;&lt;<span class="tg">br</span>&gt;&lt;<span class="tg">br</span>&gt;<br>
+<br>
+&nbsp;&nbsp;<span class="cm">&lt;!-- อีเมล --&gt;</span><br>
+&nbsp;&nbsp;&lt;<span class="tg">label</span> <span class="at">for</span>=<span class="st">"email"</span>&gt;อีเมล&lt;/<span class="tg">label</span>&gt;&lt;<span class="tg">br</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"email"</span> <span class="at">id</span>=<span class="st">"email"</span> <span class="at">name</span>=<span class="st">"email"</span> <span class="at">required</span>&gt;&lt;<span class="tg">br</span>&gt;&lt;<span class="tg">br</span>&gt;<br>
+<br>
+&nbsp;&nbsp;<span class="cm">&lt;!-- เพศ (radio) --&gt;</span><br>
+&nbsp;&nbsp;&lt;<span class="tg">p</span>&gt;เพศ&lt;/<span class="tg">p</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"radio"</span> <span class="at">id</span>=<span class="st">"m"</span> <span class="at">name</span>=<span class="st">"gender"</span> <span class="at">value</span>=<span class="st">"male"</span>&gt; &lt;<span class="tg">label</span> <span class="at">for</span>=<span class="st">"m"</span>&gt;ชาย&lt;/<span class="tg">label</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"radio"</span> <span class="at">id</span>=<span class="st">"f"</span> <span class="at">name</span>=<span class="st">"gender"</span> <span class="at">value</span>=<span class="st">"female"</span>&gt; &lt;<span class="tg">label</span> <span class="at">for</span>=<span class="st">"f"</span>&gt;หญิง&lt;/<span class="tg">label</span>&gt;&lt;<span class="tg">br</span>&gt;&lt;<span class="tg">br</span>&gt;<br>
+<br>
+&nbsp;&nbsp;<span class="cm">&lt;!-- ระดับชั้น (select) --&gt;</span><br>
+&nbsp;&nbsp;&lt;<span class="tg">label</span> <span class="at">for</span>=<span class="st">"grade"</span>&gt;ระดับชั้น&lt;/<span class="tg">label</span>&gt;&lt;<span class="tg">br</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tg">select</span> <span class="at">id</span>=<span class="st">"grade"</span> <span class="at">name</span>=<span class="st">"grade"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">option</span> <span class="at">value</span>=<span class="st">"m4"</span>&gt;ม.4&lt;/<span class="tg">option</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">option</span> <span class="at">value</span>=<span class="st">"m5"</span>&gt;ม.5&lt;/<span class="tg">option</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">option</span> <span class="at">value</span>=<span class="st">"m6"</span>&gt;ม.6&lt;/<span class="tg">option</span>&gt;<br>
+&nbsp;&nbsp;&lt;/<span class="tg">select</span>&gt;&lt;<span class="tg">br</span>&gt;&lt;<span class="tg">br</span>&gt;<br>
+<br>
+&nbsp;&nbsp;<span class="cm">&lt;!-- ความสนใจ (checkbox) — เพิ่ม option ของชมรมตัวเอง --&gt;</span><br>
+&nbsp;&nbsp;&lt;<span class="tg">p</span>&gt;ทักษะที่มี&lt;/<span class="tg">p</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"checkbox"</span> <span class="at">name</span>=<span class="st">"skill"</span> <span class="at">value</span>=<span class="st">"<input class="fill" style="--w:80px" placeholder="ค่าที่ส่ง">"</span>&gt; <input class="fill" style="--w:100px" placeholder="ชื่อทักษะ"><br>
+&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"checkbox"</span> <span class="at">name</span>=<span class="st">"skill"</span> <span class="at">value</span>=<span class="st">"<input class="fill" style="--w:80px" placeholder="ค่าที่ส่ง">"</span>&gt; <input class="fill" style="--w:100px" placeholder="ชื่อทักษะ">&lt;<span class="tg">br</span>&gt;&lt;<span class="tg">br</span>&gt;<br>
+<br>
+&nbsp;&nbsp;<span class="cm">&lt;!-- แนะนำตัว (textarea) --&gt;</span><br>
+&nbsp;&nbsp;&lt;<span class="tg">label</span> <span class="at">for</span>=<span class="st">"bio"</span>&gt;แนะนำตัวเอง&lt;/<span class="tg">label</span>&gt;&lt;<span class="tg">br</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tg">textarea</span> <span class="at">id</span>=<span class="st">"bio"</span> <span class="at">name</span>=<span class="st">"bio"</span> <span class="at">rows</span>=<span class="st">"4"</span> <span class="at">placeholder</span>=<span class="st">"<input class="fill" style="--w:150px" placeholder="ข้อความ placeholder">"</span>&gt;&lt;/<span class="tg">textarea</span>&gt;&lt;<span class="tg">br</span>&gt;&lt;<span class="tg">br</span>&gt;<br>
+<br>
+&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"submit"</span> <span class="at">value</span>=<span class="st">"<input class="fill" style="--w:100px" placeholder="ข้อความบนปุ่ม">"</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tg">button</span> <span class="at">type</span>=<span class="st">"reset"</span>&gt;ล้างข้อมูล&lt;/<span class="tg">button</span>&gt;<br>
+<br>
+&lt;/<span class="tg">form</span>&gt;<br>
+&lt;/<span class="tg">body</span>&gt;&lt;/<span class="tg">html</span>&gt;
+      </div>
+    </div>
+    <div class="note"><i class="fa-solid fa-pen-to-square" style="color:#16a34a;margin-right:6px;"></i><strong>ขั้นตอน:</strong> เติมช่องสีเขียวให้ครบ → นำโค้ดไปวางใน Google Sites → ทดสอบส่งฟอร์ม</div>
+  </div>
+
+  <!-- 12. แบบฝึกหัด B: ฟอร์มแบบสำรวจ -->
+  <div class="section">
+    <div class="section-title lime"><i class="fa-solid fa-chart-bar" style="color:#65a30d;margin-right:8px;"></i>12. แบบฝึกหัด B — ฟอร์มแบบสำรวจความพึงพอใจ</div>
+    <p style="font-size:14px; margin-bottom:14px; color:#445;">สร้างแบบสอบถามความพึงพอใจในวิชาที่เรียน — ใช้ input ให้ครบอย่างน้อย 5 type</p>
+    <div class="ex-legend">
+      <span><span class="dot-fill"></span> ช่องที่ต้องพิมพ์เอง</span>
+    </div>
+    <div class="code-wrap">
+      <div class="code-block">
+&lt;!DOCTYPE html&gt;<br>
+&lt;<span class="tg">html</span>&gt;&lt;<span class="tg">head</span>&gt;&lt;<span class="tg">base</span> <span class="at">target</span>=<span class="st">"_top"</span>&gt;&lt;/<span class="tg">head</span>&gt;<br>
+&lt;<span class="tg">body</span>&gt;<br>
+<br>
+&lt;<span class="tg">h2</span>&gt;<input class="fill" style="--w:220px" placeholder="ชื่อแบบสำรวจ">&lt;/<span class="tg">h2</span>&gt;<br>
+&lt;<span class="tg">p</span>&gt;<input class="fill" style="--w:220px" placeholder="คำอธิบายแบบสำรวจ">&lt;/<span class="tg">p</span>&gt;<br>
+<br>
+&lt;<span class="tg">form</span> <span class="at">action</span>=<span class="st">"<input class="fill" style="--w:200px" placeholder="URL ปลายทาง">"</span> <span class="at">method</span>=<span class="st">"post"</span>&gt;<br>
+<br>
+&nbsp;&nbsp;<span class="cm">&lt;!-- 1. text --&gt;</span><br>
+&nbsp;&nbsp;&lt;<span class="tg">label</span>&gt;ชื่อ-นามสกุล&lt;/<span class="tg">label</span>&gt;&lt;<span class="tg">br</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"text"</span> <span class="at">name</span>=<span class="st">"name"</span> <span class="at">required</span>&gt;&lt;<span class="tg">br</span>&gt;&lt;<span class="tg">br</span>&gt;<br>
+<br>
+&nbsp;&nbsp;<span class="cm">&lt;!-- 2. select --&gt;</span><br>
+&nbsp;&nbsp;&lt;<span class="tg">label</span>&gt;วิชาที่ประเมิน&lt;/<span class="tg">label</span>&gt;&lt;<span class="tg">br</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tg">select</span> <span class="at">name</span>=<span class="st">"subject"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">option</span> <span class="at">value</span>=<span class="st">"<input class="fill" style="--w:80px" placeholder="ค่า">"</span>&gt;<input class="fill" style="--w:120px" placeholder="ชื่อวิชา">&lt;/<span class="tg">option</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">option</span> <span class="at">value</span>=<span class="st">"<input class="fill" style="--w:80px" placeholder="ค่า">"</span>&gt;<input class="fill" style="--w:120px" placeholder="ชื่อวิชา">&lt;/<span class="tg">option</span>&gt;<br>
+&nbsp;&nbsp;&lt;/<span class="tg">select</span>&gt;&lt;<span class="tg">br</span>&gt;&lt;<span class="tg">br</span>&gt;<br>
+<br>
+&nbsp;&nbsp;<span class="cm">&lt;!-- 3. radio --&gt;</span><br>
+&nbsp;&nbsp;&lt;<span class="tg">p</span>&gt;ความพึงพอใจโดยรวม&lt;/<span class="tg">p</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"radio"</span> <span class="at">name</span>=<span class="st">"rating"</span> <span class="at">value</span>=<span class="st">"5"</span>&gt; มากที่สุด&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"radio"</span> <span class="at">name</span>=<span class="st">"rating"</span> <span class="at">value</span>=<span class="st">"4"</span>&gt; มาก&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"radio"</span> <span class="at">name</span>=<span class="st">"rating"</span> <span class="at">value</span>=<span class="st">"3"</span>&gt; ปานกลาง&lt;<span class="tg">br</span>&gt;&lt;<span class="tg">br</span>&gt;<br>
+<br>
+&nbsp;&nbsp;<span class="cm">&lt;!-- 4. range --&gt;</span><br>
+&nbsp;&nbsp;&lt;<span class="tg">label</span>&gt;คะแนนสิ่งที่ต้องปรับปรุง (1–10)&lt;/<span class="tg">label</span>&gt;&lt;<span class="tg">br</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"range"</span> <span class="at">name</span>=<span class="st">"improve"</span> <span class="at">min</span>=<span class="st">"1"</span> <span class="at">max</span>=<span class="st">"10"</span>&gt;&lt;<span class="tg">br</span>&gt;&lt;<span class="tg">br</span>&gt;<br>
+<br>
+&nbsp;&nbsp;<span class="cm">&lt;!-- 5. checkbox --&gt;</span><br>
+&nbsp;&nbsp;&lt;<span class="tg">p</span>&gt;หัวข้อที่ชอบ (เลือกได้หลายข้อ)&lt;/<span class="tg">p</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"checkbox"</span> <span class="at">name</span>=<span class="st">"topic"</span> <span class="at">value</span>=<span class="st">"<input class="fill" style="--w:80px" placeholder="ค่า">"</span>&gt; <input class="fill" style="--w:120px" placeholder="หัวข้อ">&lt;<span class="tg">br</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"checkbox"</span> <span class="at">name</span>=<span class="st">"topic"</span> <span class="at">value</span>=<span class="st">"<input class="fill" style="--w:80px" placeholder="ค่า">"</span>&gt; <input class="fill" style="--w:120px" placeholder="หัวข้อ">&lt;<span class="tg">br</span>&gt;&lt;<span class="tg">br</span>&gt;<br>
+<br>
+&nbsp;&nbsp;<span class="cm">&lt;!-- 6. textarea --&gt;</span><br>
+&nbsp;&nbsp;&lt;<span class="tg">label</span>&gt;ข้อเสนอแนะ&lt;/<span class="tg">label</span>&gt;&lt;<span class="tg">br</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tg">textarea</span> <span class="at">name</span>=<span class="st">"suggest"</span> <span class="at">rows</span>=<span class="st">"3"</span> <span class="at">placeholder</span>=<span class="st">"<input class="fill" style="--w:150px" placeholder="ข้อความ placeholder">"</span>&gt;&lt;/<span class="tg">textarea</span>&gt;&lt;<span class="tg">br</span>&gt;&lt;<span class="tg">br</span>&gt;<br>
+<br>
+&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"submit"</span> <span class="at">value</span>=<span class="st">"<input class="fill" style="--w:120px" placeholder="ข้อความบนปุ่มส่ง">"</span>&gt;<br>
+<br>
+&lt;/<span class="tg">form</span>&gt;<br>
+&lt;/<span class="tg">body</span>&gt;&lt;/<span class="tg">html</span>&gt;
+      </div>
+    </div>
+    <div class="note">
+      <i class="fa-solid fa-pen-to-square" style="color:#16a34a;margin-right:6px;"></i><strong>เงื่อนไข:</strong> ต้องใช้ input type ให้ครบอย่างน้อย 5 type ในฟอร์มเดียวกัน — ตรวจสอบที่ section 2
+    </div>
+    <div class="note info" style="margin-top:10px;">
+      <i class="fa-solid fa-trophy" style="color:#d97706;margin-right:6px;"></i><strong>Bonus:</strong> เพิ่ม <code>type="date"</code> สำหรับวันที่ส่งแบบสำรวจ และ <code>type="file"</code> สำหรับแนบหลักฐานรูปถ่าย
+    </div>
+  </div>
+
+</main>
+
+<footer><i class="fa-solid fa-school" style="margin-right:6px;color:#86efac;"></i>เอกสารประกอบการเรียน — วิชาการพัฒนาเว็บแอพสมัยใหม่ โรงเรียนจอมทอง</footer>
+
+</body>
+</html>
