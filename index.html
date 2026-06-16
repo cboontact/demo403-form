@@ -791,7 +791,296 @@
   <!-- 11. แบบฝึกหัด A: ฟอร์มสมัครสมาชิก -->
   <div class="section">
     <div class="section-title lime"><i class="fa-solid fa-pencil" style="color:#65a30d;margin-right:8px;"></i>11. แบบฝึกหัด A — ฟอร์มสมัครสมาชิกชมรม</div>
-    <p style="font-size:14px; margin-bottom:14px; color:#445;">ดูโค้ดตัวอย่างด้านล่าง แล้วพิมพ์ในช่องกรอกให้ครบ — เปลี่ยนข้อมูลให้เป็นชมรมของตัวเอง</p>
+    <p style="font-size:14px; margin-bottom:6px; color:#445;">เติมช่องสีเขียวให้ครบ — <strong>ส่วน &lt;head&gt; copy ได้</strong> ส่วน &lt;body&gt; พิมพ์เองเท่านั้น</p>
+    <div class="ex-legend" style="margin-bottom:14px;">
+      <span><span class="dot-fill"></span> ช่องที่ต้องพิมพ์เอง</span>
+    </div>
+
+    <!-- HEAD: copy ได้ -->
+    <p style="font-size:12px; font-weight:700; color:#166534; margin-bottom:6px; letter-spacing:.3px;">
+      <i class="fa-solid fa-copy" style="margin-right:5px;"></i>&lt;head&gt; — copy ได้
+    </p>
+    <div class="code-wrap" style="margin-bottom:4px;">
+      <div class="code-block" style="border-bottom:none; border-radius:8px 8px 0 0;">
+&lt;!DOCTYPE html&gt;<br>
+&lt;<span class="tg">html</span>&gt;<br>
+&lt;<span class="tg">head</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tg">base</span> <span class="at">target</span>=<span class="st">"_top"</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tg">style</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">body</span> { <span class="pr">font-family</span>: <span class="vl">sans-serif</span>; <span class="pr">max-width</span>: <span class="vl">480px</span>; <span class="pr">margin</span>: <span class="vl">30px auto</span>; <span class="pr">padding</span>: <span class="vl">0 20px</span>; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">h2</span> { <span class="pr">color</span>: <span class="vl">#15803d</span>; <span class="pr">border-bottom</span>: <span class="vl">2px solid #86efac</span>; <span class="pr">padding-bottom</span>: <span class="vl">8px</span>; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">label</span> { <span class="pr">display</span>: <span class="vl">block</span>; <span class="pr">font-weight</span>: <span class="vl">bold</span>; <span class="pr">margin-bottom</span>: <span class="vl">4px</span>; <span class="pr">color</span>: <span class="vl">#166534</span>; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">input[type="text"], input[type="email"], select, textarea</span> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">width</span>: <span class="vl">100%</span>; <span class="pr">padding</span>: <span class="vl">8px 12px</span>; <span class="pr">border</span>: <span class="vl">1px solid #86efac</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">border-radius</span>: <span class="vl">6px</span>; <span class="pr">box-sizing</span>: <span class="vl">border-box</span>; <span class="pr">margin-bottom</span>: <span class="vl">14px</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">.field</span> { <span class="pr">margin-bottom</span>: <span class="vl">14px</span>; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">input[type="submit"]</span> { <span class="pr">background</span>: <span class="vl">#16a34a</span>; <span class="pr">color</span>: <span class="vl">#fff</span>; <span class="pr">border</span>: <span class="vl">none</span>; <span class="pr">padding</span>: <span class="vl">9px 24px</span>; <span class="pr">border-radius</span>: <span class="vl">6px</span>; <span class="pr">cursor</span>: <span class="vl">pointer</span>; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">button[type="reset"]</span> { <span class="pr">background</span>: <span class="vl">#f0fdf4</span>; <span class="pr">color</span>: <span class="vl">#15803d</span>; <span class="pr">border</span>: <span class="vl">1px solid #86efac</span>; <span class="pr">padding</span>: <span class="vl">9px 24px</span>; <span class="pr">border-radius</span>: <span class="vl">6px</span>; <span class="pr">cursor</span>: <span class="vl">pointer</span>; }<br>
+&nbsp;&nbsp;&lt;/<span class="tg">style</span>&gt;<br>
+&lt;/<span class="tg">head</span>&gt;
+      </div>
+    </div>
+
+    <!-- BODY: พิมพ์เอง -->
+    <p style="font-size:12px; font-weight:700; color:#dc2626; margin-bottom:6px; margin-top:2px; letter-spacing:.3px;">
+      <i class="fa-solid fa-lock" style="margin-right:5px;"></i>&lt;body&gt; — พิมพ์เองเท่านั้น
+    </p>
+    <div class="code-wrap">
+      <div class="no-copy-badge"><i class="fa-solid fa-lock" style="margin-right:4px;"></i>พิมพ์เองเท่านั้น</div>
+      <div class="code-block no-copy" oncontextmenu="return false" style="border-radius:0 0 8px 8px;">
+&lt;<span class="tg">body</span>&gt;<br>
+<br>
+&lt;<span class="tg">h2</span>&gt;<input class="fill" style="--w:200px" placeholder="ชื่อชมรม เช่น ชมรมคอมพิวเตอร์" id="f11-title" oninput="update11()">&lt;/<span class="tg">h2</span>&gt;<br>
+<br>
+&lt;<span class="tg">form</span> <span class="at">action</span>=<span class="st">"<input class="fill" style="--w:220px" placeholder="URL Google Apps Script">"</span> <span class="at">method</span>=<span class="st">"post"</span>&gt;<br>
+<br>
+&nbsp;&nbsp;&lt;<span class="tg">div</span> <span class="at">class</span>=<span class="st">"field"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">label</span>&gt;<input class="fill" style="--w:120px" placeholder="ป้ายกำกับ" id="f11-l1" oninput="update11()">&lt;/<span class="tg">label</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"text"</span> <span class="at">name</span>=<span class="st">"name"</span> <span class="at">placeholder</span>=<span class="st">"<input class="fill" style="--w:150px" placeholder="placeholder ช่องชื่อ" id="f11-p1" oninput="update11()">"</span> <span class="at">required</span>&gt;<br>
+&nbsp;&nbsp;&lt;/<span class="tg">div</span>&gt;<br>
+<br>
+&nbsp;&nbsp;&lt;<span class="tg">div</span> <span class="at">class</span>=<span class="st">"field"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">label</span>&gt;<input class="fill" style="--w:120px" placeholder="ป้ายกำกับ" id="f11-l2" oninput="update11()">&lt;/<span class="tg">label</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"email"</span> <span class="at">name</span>=<span class="st">"email"</span> <span class="at">required</span>&gt;<br>
+&nbsp;&nbsp;&lt;/<span class="tg">div</span>&gt;<br>
+<br>
+&nbsp;&nbsp;&lt;<span class="tg">div</span> <span class="at">class</span>=<span class="st">"field"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">label</span>&gt;<input class="fill" style="--w:80px" placeholder="ป้ายกำกับ" id="f11-l3" oninput="update11()">&lt;/<span class="tg">label</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"radio"</span> <span class="at">name</span>=<span class="st">"gender"</span> <span class="at">value</span>=<span class="st">"male"</span>&gt; ชาย&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"radio"</span> <span class="at">name</span>=<span class="st">"gender"</span> <span class="at">value</span>=<span class="st">"female"</span>&gt; หญิง<br>
+&nbsp;&nbsp;&lt;/<span class="tg">div</span>&gt;<br>
+<br>
+&nbsp;&nbsp;&lt;<span class="tg">div</span> <span class="at">class</span>=<span class="st">"field"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">label</span>&gt;<input class="fill" style="--w:80px" placeholder="ป้ายกำกับ" id="f11-l4" oninput="update11()">&lt;/<span class="tg">label</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">select</span> <span class="at">name</span>=<span class="st">"grade"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">option</span> <span class="at">value</span>=<span class="st">"m4"</span>&gt;ม.4&lt;/<span class="tg">option</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">option</span> <span class="at">value</span>=<span class="st">"m5"</span>&gt;ม.5&lt;/<span class="tg">option</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">option</span> <span class="at">value</span>=<span class="st">"m6"</span>&gt;ม.6&lt;/<span class="tg">option</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="tg">select</span>&gt;<br>
+&nbsp;&nbsp;&lt;/<span class="tg">div</span>&gt;<br>
+<br>
+&nbsp;&nbsp;&lt;<span class="tg">div</span> <span class="at">class</span>=<span class="st">"field"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">label</span>&gt;<input class="fill" style="--w:80px" placeholder="ป้ายกำกับ" id="f11-l5" oninput="update11()">&lt;/<span class="tg">label</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"checkbox"</span> <span class="at">name</span>=<span class="st">"skill"</span> <span class="at">value</span>=<span class="st">"<input class="fill" style="--w:70px" placeholder="ค่า" id="f11-cv1" oninput="update11()">"</span>&gt; <input class="fill" style="--w:90px" placeholder="ชื่อตัวเลือก" id="f11-cn1" oninput="update11()">&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"checkbox"</span> <span class="at">name</span>=<span class="st">"skill"</span> <span class="at">value</span>=<span class="st">"<input class="fill" style="--w:70px" placeholder="ค่า" id="f11-cv2" oninput="update11()">"</span>&gt; <input class="fill" style="--w:90px" placeholder="ชื่อตัวเลือก" id="f11-cn2" oninput="update11()"><br>
+&nbsp;&nbsp;&lt;/<span class="tg">div</span>&gt;<br>
+<br>
+&nbsp;&nbsp;&lt;<span class="tg">div</span> <span class="at">class</span>=<span class="st">"field"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">label</span>&gt;<input class="fill" style="--w:120px" placeholder="ป้ายกำกับ" id="f11-l6" oninput="update11()">&lt;/<span class="tg">label</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">textarea</span> <span class="at">name</span>=<span class="st">"bio"</span> <span class="at">rows</span>=<span class="st">"4"</span> <span class="at">placeholder</span>=<span class="st">"<input class="fill" style="--w:160px" placeholder="placeholder textarea" id="f11-tp" oninput="update11()">"</span>&gt;&lt;/<span class="tg">textarea</span>&gt;<br>
+&nbsp;&nbsp;&lt;/<span class="tg">div</span>&gt;<br>
+<br>
+&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"submit"</span> <span class="at">value</span>=<span class="st">"<input class="fill" style="--w:100px" placeholder="ข้อความปุ่ม" id="f11-btn" oninput="update11()">"</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tg">button</span> <span class="at">type</span>=<span class="st">"reset"</span>&gt;ล้างข้อมูล&lt;/<span class="tg">button</span>&gt;<br>
+<br>
+&lt;/<span class="tg">form</span>&gt;<br>
+&lt;/<span class="tg">body</span>&gt;&lt;/<span class="tg">html</span>&gt;
+      </div>
+    </div>
+
+    <!-- Preview อัปเดตตามที่กรอก -->
+    <div class="preview-area" style="margin-top:16px;">
+      <div class="form-title"><i class="fa-solid fa-eye" style="margin-right:8px;"></i>ตัวอย่างผลลัพธ์ — อัปเดตตามที่พิมพ์</div>
+      <form onsubmit="return false;" style="font-family:sans-serif;">
+        <h3 id="prev11-title" style="color:#15803d; border-bottom:2px solid #86efac; padding-bottom:6px; margin-bottom:14px; font-size:16px;">ชื่อชมรม</h3>
+        <div class="field-group">
+          <label id="prev11-l1" style="font-weight:700; color:#166534; display:block; margin-bottom:4px;">ป้ายกำกับ</label>
+          <input type="text" id="prev11-p1" placeholder="placeholder ช่องชื่อ" style="width:100%; padding:8px 12px; border:1px solid #86efac; border-radius:6px; box-sizing:border-box; margin-bottom:14px;">
+        </div>
+        <div class="field-group">
+          <label id="prev11-l2" style="font-weight:700; color:#166534; display:block; margin-bottom:4px;">ป้ายกำกับ</label>
+          <input type="email" placeholder="example@gmail.com" style="width:100%; padding:8px 12px; border:1px solid #86efac; border-radius:6px; box-sizing:border-box; margin-bottom:14px;">
+        </div>
+        <div class="field-group">
+          <label id="prev11-l3" style="font-weight:700; color:#166534; display:block; margin-bottom:6px;">ป้ายกำกับ</label>
+          <div class="radio-group" style="margin-bottom:14px;">
+            <label style="display:inline-flex; align-items:center; gap:4px; margin-right:12px;"><input type="radio" name="p11g"> ชาย</label>
+            <label style="display:inline-flex; align-items:center; gap:4px;"><input type="radio" name="p11g"> หญิง</label>
+          </div>
+        </div>
+        <div class="field-group">
+          <label id="prev11-l4" style="font-weight:700; color:#166534; display:block; margin-bottom:4px;">ป้ายกำกับ</label>
+          <select style="width:100%; padding:8px 12px; border:1px solid #86efac; border-radius:6px; box-sizing:border-box; margin-bottom:14px;">
+            <option>ม.4</option><option>ม.5</option><option>ม.6</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label id="prev11-l5" style="font-weight:700; color:#166534; display:block; margin-bottom:6px;">ป้ายกำกับ</label>
+          <div style="margin-bottom:14px; display:flex; gap:14px;">
+            <label style="display:inline-flex; align-items:center; gap:4px;"><input type="checkbox"> <span id="prev11-cn1">ตัวเลือก 1</span></label>
+            <label style="display:inline-flex; align-items:center; gap:4px;"><input type="checkbox"> <span id="prev11-cn2">ตัวเลือก 2</span></label>
+          </div>
+        </div>
+        <div class="field-group">
+          <label id="prev11-l6" style="font-weight:700; color:#166534; display:block; margin-bottom:4px;">ป้ายกำกับ</label>
+          <textarea id="prev11-tp" rows="3" placeholder="placeholder textarea" style="width:100%; padding:8px 12px; border:1px solid #86efac; border-radius:6px; box-sizing:border-box; margin-bottom:14px;"></textarea>
+        </div>
+        <div>
+          <button id="prev11-btn" type="button" style="background:#16a34a; color:#fff; border:none; padding:9px 24px; border-radius:6px; cursor:pointer; font-size:14px; margin-right:8px;">ข้อความปุ่ม</button>
+          <button type="button" style="background:#f0fdf4; color:#15803d; border:1px solid #86efac; padding:9px 24px; border-radius:6px; cursor:pointer; font-size:14px;">ล้างข้อมูล</button>
+        </div>
+      </form>
+    </div>
+    <div class="note" style="margin-top:12px;"><i class="fa-solid fa-lightbulb" style="color:#16a34a;margin-right:6px;"></i>พิมพ์ในช่องสีเขียว — preview ด้านบนจะอัปเดตตามทันที</div>
+  </div>
+
+  <!-- 12. แบบฝึกหัด B: ฟอร์มแบบสำรวจ -->
+  <div class="section">
+    <div class="section-title lime"><i class="fa-solid fa-chart-bar" style="color:#65a30d;margin-right:8px;"></i>12. แบบฝึกหัด B — ฟอร์มแบบสำรวจความพึงพอใจ</div>
+    <p style="font-size:14px; margin-bottom:6px; color:#445;">สร้างแบบสอบถามความพึงพอใจในวิชาที่เรียน — <strong>ส่วน &lt;head&gt; copy ได้</strong> ส่วน &lt;body&gt; พิมพ์เองเท่านั้น</p>
+    <div class="ex-legend" style="margin-bottom:14px;">
+      <span><span class="dot-fill"></span> ช่องที่ต้องพิมพ์เอง</span>
+    </div>
+
+    <!-- HEAD: copy ได้ -->
+    <p style="font-size:12px; font-weight:700; color:#166534; margin-bottom:6px; letter-spacing:.3px;">
+      <i class="fa-solid fa-copy" style="margin-right:5px;"></i>&lt;head&gt; — copy ได้
+    </p>
+    <div class="code-wrap" style="margin-bottom:4px;">
+      <div class="code-block" style="border-bottom:none; border-radius:8px 8px 0 0;">
+&lt;!DOCTYPE html&gt;<br>
+&lt;<span class="tg">html</span>&gt;<br>
+&lt;<span class="tg">head</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tg">base</span> <span class="at">target</span>=<span class="st">"_top"</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tg">style</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">body</span> { <span class="pr">font-family</span>: <span class="vl">sans-serif</span>; <span class="pr">max-width</span>: <span class="vl">480px</span>; <span class="pr">margin</span>: <span class="vl">30px auto</span>; <span class="pr">padding</span>: <span class="vl">0 20px</span>; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">h2</span> { <span class="pr">color</span>: <span class="vl">#15803d</span>; <span class="pr">border-bottom</span>: <span class="vl">2px solid #86efac</span>; <span class="pr">padding-bottom</span>: <span class="vl">8px</span>; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">label</span> { <span class="pr">display</span>: <span class="vl">block</span>; <span class="pr">font-weight</span>: <span class="vl">bold</span>; <span class="pr">margin-bottom</span>: <span class="vl">4px</span>; <span class="pr">color</span>: <span class="vl">#166534</span>; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">input[type="text"], input[type="date"], select, textarea</span> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">width</span>: <span class="vl">100%</span>; <span class="pr">padding</span>: <span class="vl">8px 12px</span>; <span class="pr">border</span>: <span class="vl">1px solid #86efac</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">border-radius</span>: <span class="vl">6px</span>; <span class="pr">box-sizing</span>: <span class="vl">border-box</span>; <span class="pr">margin-bottom</span>: <span class="vl">14px</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">input[type="range"]</span> { <span class="pr">width</span>: <span class="vl">100%</span>; <span class="pr">margin-bottom</span>: <span class="vl">14px</span>; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">.field</span> { <span class="pr">margin-bottom</span>: <span class="vl">14px</span>; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">input[type="submit"]</span> { <span class="pr">background</span>: <span class="vl">#16a34a</span>; <span class="pr">color</span>: <span class="vl">#fff</span>; <span class="pr">border</span>: <span class="vl">none</span>; <span class="pr">padding</span>: <span class="vl">9px 24px</span>; <span class="pr">border-radius</span>: <span class="vl">6px</span>; <span class="pr">cursor</span>: <span class="vl">pointer</span>; }<br>
+&nbsp;&nbsp;&lt;/<span class="tg">style</span>&gt;<br>
+&lt;/<span class="tg">head</span>&gt;
+      </div>
+    </div>
+
+    <!-- BODY: พิมพ์เอง -->
+    <p style="font-size:12px; font-weight:700; color:#dc2626; margin-bottom:6px; margin-top:2px; letter-spacing:.3px;">
+      <i class="fa-solid fa-lock" style="margin-right:5px;"></i>&lt;body&gt; — พิมพ์เองเท่านั้น
+    </p>
+    <div class="code-wrap">
+      <div class="no-copy-badge"><i class="fa-solid fa-lock" style="margin-right:4px;"></i>พิมพ์เองเท่านั้น</div>
+      <div class="code-block no-copy" oncontextmenu="return false" style="border-radius:0 0 8px 8px;">
+&lt;<span class="tg">body</span>&gt;<br>
+<br>
+&lt;<span class="tg">h2</span>&gt;<input class="fill" style="--w:200px" placeholder="ชื่อแบบสำรวจ" id="f12-title" oninput="update12()">&lt;/<span class="tg">h2</span>&gt;<br>
+&lt;<span class="tg">p</span>&gt;<input class="fill" style="--w:220px" placeholder="คำอธิบาย" id="f12-desc" oninput="update12()">&lt;/<span class="tg">p</span>&gt;<br>
+<br>
+&lt;<span class="tg">form</span> <span class="at">action</span>=<span class="st">"<input class="fill" style="--w:220px" placeholder="URL Google Apps Script">"</span> <span class="at">method</span>=<span class="st">"post"</span>&gt;<br>
+<br>
+&nbsp;&nbsp;<span class="cm">&lt;!-- 1. text --&gt;</span><br>
+&nbsp;&nbsp;&lt;<span class="tg">div</span> <span class="at">class</span>=<span class="st">"field"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">label</span>&gt;<input class="fill" style="--w:120px" placeholder="ป้ายกำกับ" id="f12-l1" oninput="update12()">&lt;/<span class="tg">label</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"text"</span> <span class="at">name</span>=<span class="st">"name"</span> <span class="at">required</span>&gt;<br>
+&nbsp;&nbsp;&lt;/<span class="tg">div</span>&gt;<br>
+<br>
+&nbsp;&nbsp;<span class="cm">&lt;!-- 2. select --&gt;</span><br>
+&nbsp;&nbsp;&lt;<span class="tg">div</span> <span class="at">class</span>=<span class="st">"field"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">label</span>&gt;<input class="fill" style="--w:120px" placeholder="ป้ายกำกับ" id="f12-l2" oninput="update12()">&lt;/<span class="tg">label</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">select</span> <span class="at">name</span>=<span class="st">"subject"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">option</span>&gt;<input class="fill" style="--w:160px" placeholder="ตัวเลือก 1" id="f12-o1" oninput="update12()">&lt;/<span class="tg">option</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">option</span>&gt;<input class="fill" style="--w:160px" placeholder="ตัวเลือก 2" id="f12-o2" oninput="update12()">&lt;/<span class="tg">option</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="tg">select</span>&gt;<br>
+&nbsp;&nbsp;&lt;/<span class="tg">div</span>&gt;<br>
+<br>
+&nbsp;&nbsp;<span class="cm">&lt;!-- 3. radio --&gt;</span><br>
+&nbsp;&nbsp;&lt;<span class="tg">div</span> <span class="at">class</span>=<span class="st">"field"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">label</span>&gt;<input class="fill" style="--w:160px" placeholder="ป้ายกำกับ" id="f12-l3" oninput="update12()">&lt;/<span class="tg">label</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"radio"</span> <span class="at">name</span>=<span class="st">"rating"</span> <span class="at">value</span>=<span class="st">"5"</span>&gt; มากที่สุด&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"radio"</span> <span class="at">name</span>=<span class="st">"rating"</span> <span class="at">value</span>=<span class="st">"4"</span>&gt; มาก&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"radio"</span> <span class="at">name</span>=<span class="st">"rating"</span> <span class="at">value</span>=<span class="st">"3"</span>&gt; ปานกลาง<br>
+&nbsp;&nbsp;&lt;/<span class="tg">div</span>&gt;<br>
+<br>
+&nbsp;&nbsp;<span class="cm">&lt;!-- 4. range --&gt;</span><br>
+&nbsp;&nbsp;&lt;<span class="tg">div</span> <span class="at">class</span>=<span class="st">"field"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">label</span>&gt;<input class="fill" style="--w:200px" placeholder="ป้ายกำกับ range" id="f12-l4" oninput="update12()">&lt;/<span class="tg">label</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"range"</span> <span class="at">name</span>=<span class="st">"improve"</span> <span class="at">min</span>=<span class="st">"1"</span> <span class="at">max</span>=<span class="st">"10"</span>&gt;<br>
+&nbsp;&nbsp;&lt;/<span class="tg">div</span>&gt;<br>
+<br>
+&nbsp;&nbsp;<span class="cm">&lt;!-- 5. checkbox --&gt;</span><br>
+&nbsp;&nbsp;&lt;<span class="tg">div</span> <span class="at">class</span>=<span class="st">"field"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">label</span>&gt;<input class="fill" style="--w:120px" placeholder="ป้ายกำกับ" id="f12-l5" oninput="update12()">&lt;/<span class="tg">label</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"checkbox"</span> <span class="at">name</span>=<span class="st">"topic"</span> <span class="at">value</span>=<span class="st">"<input class="fill" style="--w:60px" placeholder="ค่า">"</span>&gt; <input class="fill" style="--w:90px" placeholder="หัวข้อ" id="f12-cb1" oninput="update12()">&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"checkbox"</span> <span class="at">name</span>=<span class="st">"topic"</span> <span class="at">value</span>=<span class="st">"<input class="fill" style="--w:60px" placeholder="ค่า">"</span>&gt; <input class="fill" style="--w:90px" placeholder="หัวข้อ" id="f12-cb2" oninput="update12()"><br>
+&nbsp;&nbsp;&lt;/<span class="tg">div</span>&gt;<br>
+<br>
+&nbsp;&nbsp;<span class="cm">&lt;!-- 6. date --&gt;</span><br>
+&nbsp;&nbsp;&lt;<span class="tg">div</span> <span class="at">class</span>=<span class="st">"field"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">label</span>&gt;<input class="fill" style="--w:160px" placeholder="ป้ายกำกับ date" id="f12-l6" oninput="update12()">&lt;/<span class="tg">label</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"date"</span> <span class="at">name</span>=<span class="st">"survey_date"</span>&gt;<br>
+&nbsp;&nbsp;&lt;/<span class="tg">div</span>&gt;<br>
+<br>
+&nbsp;&nbsp;<span class="cm">&lt;!-- 7. textarea --&gt;</span><br>
+&nbsp;&nbsp;&lt;<span class="tg">div</span> <span class="at">class</span>=<span class="st">"field"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">label</span>&gt;<input class="fill" style="--w:120px" placeholder="ป้ายกำกับ" id="f12-l7" oninput="update12()">&lt;/<span class="tg">label</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">textarea</span> <span class="at">name</span>=<span class="st">"suggest"</span> <span class="at">rows</span>=<span class="st">"3"</span> <span class="at">placeholder</span>=<span class="st">"<input class="fill" style="--w:150px" placeholder="placeholder" id="f12-tp" oninput="update12()">"</span>&gt;&lt;/<span class="tg">textarea</span>&gt;<br>
+&nbsp;&nbsp;&lt;/<span class="tg">div</span>&gt;<br>
+<br>
+&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"submit"</span> <span class="at">value</span>=<span class="st">"<input class="fill" style="--w:120px" placeholder="ข้อความปุ่มส่ง" id="f12-btn" oninput="update12()">"</span>&gt;<br>
+<br>
+&lt;/<span class="tg">form</span>&gt;<br>
+&lt;/<span class="tg">body</span>&gt;&lt;/<span class="tg">html</span>&gt;
+      </div>
+    </div>
+
+    <!-- Preview อัปเดตตามที่กรอก -->
+    <div class="preview-area" style="margin-top:16px;">
+      <div class="form-title"><i class="fa-solid fa-eye" style="margin-right:8px;"></i>ตัวอย่างผลลัพธ์ — อัปเดตตามที่พิมพ์</div>
+      <form onsubmit="return false;" style="font-family:sans-serif;">
+        <h3 id="prev12-title" style="color:#15803d; border-bottom:2px solid #86efac; padding-bottom:6px; margin-bottom:6px; font-size:16px;">ชื่อแบบสำรวจ</h3>
+        <p id="prev12-desc" style="font-size:13px; color:#555; margin-bottom:14px;">คำอธิบาย</p>
+        <div class="field-group">
+          <label id="prev12-l1" style="font-weight:700; color:#166534; display:block; margin-bottom:4px;">ป้ายกำกับ</label>
+          <input type="text" style="width:100%; padding:8px 12px; border:1px solid #86efac; border-radius:6px; box-sizing:border-box; margin-bottom:14px;">
+        </div>
+        <div class="field-group">
+          <label id="prev12-l2" style="font-weight:700; color:#166534; display:block; margin-bottom:4px;">ป้ายกำกับ</label>
+          <select id="prev12-sel" style="width:100%; padding:8px 12px; border:1px solid #86efac; border-radius:6px; box-sizing:border-box; margin-bottom:14px;">
+            <option id="prev12-o1">ตัวเลือก 1</option>
+            <option id="prev12-o2">ตัวเลือก 2</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label id="prev12-l3" style="font-weight:700; color:#166534; display:block; margin-bottom:6px;">ป้ายกำกับ</label>
+          <div class="radio-group" style="margin-bottom:14px;">
+            <label style="display:inline-flex;align-items:center;gap:4px;margin-right:10px;"><input type="radio" name="p12r"> มากที่สุด</label>
+            <label style="display:inline-flex;align-items:center;gap:4px;margin-right:10px;"><input type="radio" name="p12r"> มาก</label>
+            <label style="display:inline-flex;align-items:center;gap:4px;"><input type="radio" name="p12r"> ปานกลาง</label>
+          </div>
+        </div>
+        <div class="field-group">
+          <label id="prev12-l4" style="font-weight:700; color:#166534; display:block; margin-bottom:4px;">ป้ายกำกับ</label>
+          <input type="range" min="1" max="10" style="width:100%; margin-bottom:14px;">
+        </div>
+        <div class="field-group">
+          <label id="prev12-l5" style="font-weight:700; color:#166534; display:block; margin-bottom:6px;">ป้ายกำกับ</label>
+          <div style="margin-bottom:14px; display:flex; gap:14px;">
+            <label style="display:inline-flex;align-items:center;gap:4px;"><input type="checkbox"> <span id="prev12-cb1">หัวข้อ 1</span></label>
+            <label style="display:inline-flex;align-items:center;gap:4px;"><input type="checkbox"> <span id="prev12-cb2">หัวข้อ 2</span></label>
+          </div>
+        </div>
+        <div class="field-group">
+          <label id="prev12-l6" style="font-weight:700; color:#166534; display:block; margin-bottom:4px;">ป้ายกำกับ</label>
+          <input type="date" style="width:100%; padding:8px 12px; border:1px solid #86efac; border-radius:6px; box-sizing:border-box; margin-bottom:14px;">
+        </div>
+        <div class="field-group">
+          <label id="prev12-l7" style="font-weight:700; color:#166534; display:block; margin-bottom:4px;">ป้ายกำกับ</label>
+          <textarea id="prev12-tp" rows="3" style="width:100%; padding:8px 12px; border:1px solid #86efac; border-radius:6px; box-sizing:border-box; margin-bottom:14px;" placeholder="placeholder"></textarea>
+        </div>
+        <button id="prev12-btn" type="button" style="background:#16a34a; color:#fff; border:none; padding:9px 24px; border-radius:6px; cursor:pointer; font-size:14px;">ข้อความปุ่มส่ง</button>
+      </form>
+    </div>
+    <div class="note" style="margin-top:12px;"><i class="fa-solid fa-lightbulb" style="color:#16a34a;margin-right:6px;"></i>พิมพ์ในช่องสีเขียว — preview ด้านบนจะอัปเดตตามทันที</div>
+    <div class="note info" style="margin-top:10px;">
+      <i class="fa-solid fa-trophy" style="color:#d97706;margin-right:6px;"></i><strong>Bonus:</strong> ลองเพิ่ม <code>type="file"</code> สำหรับแนบหลักฐานรูปถ่ายด้วยตัวเอง
+    </div>
+  </div>
+  </div>
 
     <p style="font-size:13px; font-weight:700; color:#166534; margin-bottom:8px;"><i class="fa-solid fa-code" style="margin-right:6px;"></i>โค้ดตัวอย่าง — ศึกษาแล้วพิมพ์เองในช่องด้านล่าง</p>
     <div class="code-wrap">
@@ -1233,6 +1522,43 @@
     });
     block.addEventListener('dragstart', function(e) { e.preventDefault(); });
   });
+
+  function g(id) { var el = document.getElementById(id); return el ? el.value : ''; }
+  function set(id, val) { var el = document.getElementById(id); if (el) el.textContent = val || el.getAttribute('data-default') || ''; }
+  function setPlaceholder(id, val) { var el = document.getElementById(id); if (el && val) el.placeholder = val; }
+
+  function update11() {
+    var title = g('f11-title'); document.getElementById('prev11-title').textContent = title || 'ชื่อชมรม';
+    set('prev11-l1', g('f11-l1') || 'ป้ายกำกับ');
+    set('prev11-l2', g('f11-l2') || 'ป้ายกำกับ');
+    set('prev11-l3', g('f11-l3') || 'ป้ายกำกับ');
+    set('prev11-l4', g('f11-l4') || 'ป้ายกำกับ');
+    set('prev11-l5', g('f11-l5') || 'ป้ายกำกับ');
+    set('prev11-l6', g('f11-l6') || 'ป้ายกำกับ');
+    var p1 = g('f11-p1'); if (p1) document.getElementById('prev11-p1').placeholder = p1;
+    var tp = g('f11-tp'); if (tp) document.getElementById('prev11-tp').placeholder = tp;
+    set('prev11-cn1', g('f11-cn1') || 'ตัวเลือก 1');
+    set('prev11-cn2', g('f11-cn2') || 'ตัวเลือก 2');
+    var btn = g('f11-btn'); document.getElementById('prev11-btn').textContent = btn || 'ข้อความปุ่ม';
+  }
+
+  function update12() {
+    var title = g('f12-title'); document.getElementById('prev12-title').textContent = title || 'ชื่อแบบสำรวจ';
+    var desc = g('f12-desc'); document.getElementById('prev12-desc').textContent = desc || 'คำอธิบาย';
+    set('prev12-l1', g('f12-l1') || 'ป้ายกำกับ');
+    set('prev12-l2', g('f12-l2') || 'ป้ายกำกับ');
+    set('prev12-l3', g('f12-l3') || 'ป้ายกำกับ');
+    set('prev12-l4', g('f12-l4') || 'ป้ายกำกับ');
+    set('prev12-l5', g('f12-l5') || 'ป้ายกำกับ');
+    set('prev12-l6', g('f12-l6') || 'ป้ายกำกับ');
+    set('prev12-l7', g('f12-l7') || 'ป้ายกำกับ');
+    var o1 = g('f12-o1'); document.getElementById('prev12-o1').textContent = o1 || 'ตัวเลือก 1';
+    var o2 = g('f12-o2'); document.getElementById('prev12-o2').textContent = o2 || 'ตัวเลือก 2';
+    set('prev12-cb1', g('f12-cb1') || 'หัวข้อ 1');
+    set('prev12-cb2', g('f12-cb2') || 'หัวข้อ 2');
+    var tp = g('f12-tp'); if (tp) document.getElementById('prev12-tp').placeholder = tp;
+    var btn = g('f12-btn'); document.getElementById('prev12-btn').textContent = btn || 'ข้อความปุ่มส่ง';
+  }
 </script>
 
 </body>
