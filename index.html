@@ -272,6 +272,26 @@
       background: var(--fill); border-bottom: 2px dashed var(--fill-border); border-radius: 3px;
     }
 
+    /* ===== NO-COPY (ข้อ 11-12) ===== */
+    .no-copy {
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+    }
+    .no-copy-badge {
+      position: absolute;
+      top: 10px; right: 12px;
+      background: #fef2f2;
+      color: #dc2626;
+      font-size: 11px;
+      font-family: 'Sarabun', sans-serif;
+      padding: 2px 10px;
+      border-radius: 20px;
+      border: 1px solid #fecaca;
+      pointer-events: none;
+      z-index: 2;
+    }
+
     footer { text-align: center; font-size: 12px; color: #aaa; padding-bottom: 20px; }
   </style>
 </head>
@@ -776,12 +796,8 @@
       <span><span class="dot-fill"></span> ช่องที่ต้องพิมพ์เอง</span>
     </div>
     <div class="code-wrap">
-      <div class="code-block">
-&lt;!DOCTYPE html&gt;<br>
-&lt;<span class="tg">html</span>&gt;&lt;<span class="tg">head</span>&gt;&lt;<span class="tg">base</span> <span class="at">target</span>=<span class="st">"_top"</span>&gt;&lt;/<span class="tg">head</span>&gt;<br>
-&lt;<span class="tg">body</span>&gt;<br>
-<br>
-&lt;<span class="tg">h2</span>&gt;<input class="fill" style="--w:200px" placeholder="ชื่อชมรม เช่น ชมรมคอมพิวเตอร์">&lt;/<span class="tg">h2</span>&gt;<br>
+      <div class="no-copy-badge"><i class="fa-solid fa-lock" style="margin-right:4px;"></i>พิมพ์เองเท่านั้น</div>
+      <div class="code-block no-copy" oncontextmenu="return false">&lt;/<span class="tg">h2</span>&gt;<br>
 <br>
 &lt;<span class="tg">form</span> <span class="at">action</span>=<span class="st">"<input class="fill" style="--w:200px" placeholder="URL ปลายทาง">"</span> <span class="at">method</span>=<span class="st">"post"</span>&gt;<br>
 <br>
@@ -823,6 +839,49 @@
       </div>
     </div>
     <div class="note"><i class="fa-solid fa-pen-to-square" style="color:#16a34a;margin-right:6px;"></i><strong>ขั้นตอน:</strong> เติมช่องสีเขียวให้ครบ → นำโค้ดไปวางใน Google Sites → ทดสอบส่งฟอร์ม</div>
+    <div class="preview-area" style="margin-top:16px;">
+      <div class="form-title"><i class="fa-solid fa-eye" style="margin-right:8px;"></i>ตัวอย่างผลลัพธ์ — ฟอร์มสมัครสมาชิกชมรม</div>
+      <form onsubmit="alert('สมัครสมาชิกสำเร็จ!'); return false;">
+        <div class="field-group">
+          <label for="ex11-name">ชื่อ-นามสกุล <span style="color:#dc2626">*</span></label>
+          <input type="text" id="ex11-name" placeholder="เช่น นายสมชาย ใจดี" required>
+        </div>
+        <div class="field-group">
+          <label for="ex11-email">อีเมล <span style="color:#dc2626">*</span></label>
+          <input type="email" id="ex11-email" placeholder="example@gmail.com" required>
+        </div>
+        <div class="field-group">
+          <label>เพศ</label>
+          <div class="radio-group">
+            <label><input type="radio" name="ex11-gender" value="male"> ชาย</label>
+            <label><input type="radio" name="ex11-gender" value="female" checked> หญิง</label>
+          </div>
+        </div>
+        <div class="field-group">
+          <label for="ex11-grade">ระดับชั้น</label>
+          <select id="ex11-grade">
+            <option value="m4">ม.4</option>
+            <option value="m5" selected>ม.5</option>
+            <option value="m6">ม.6</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label>ทักษะที่มี</label>
+          <div class="check-group">
+            <label><input type="checkbox" value="coding" checked> เขียนโค้ด</label>
+            <label><input type="checkbox" value="design"> ออกแบบ</label>
+          </div>
+        </div>
+        <div class="field-group">
+          <label for="ex11-bio">แนะนำตัวเอง</label>
+          <textarea id="ex11-bio" rows="3" placeholder="พิมพ์แนะนำตัวเองสั้นๆ..."></textarea>
+        </div>
+        <div style="margin-top:8px;">
+          <button type="submit" style="background:#16a34a;color:#fff;border:none;padding:8px 20px;border-radius:6px;font-family:Sarabun,sans-serif;font-size:14px;font-weight:600;cursor:pointer;margin-right:8px;"><i class="fa-solid fa-paper-plane" style="margin-right:6px;"></i>สมัครสมาชิก</button>
+          <button type="reset" style="background:#f0fdf4;color:#15803d;border:1px solid #86efac;padding:8px 20px;border-radius:6px;font-family:Sarabun,sans-serif;font-size:14px;font-weight:600;cursor:pointer;"><i class="fa-solid fa-rotate-left" style="margin-right:6px;"></i>ล้างข้อมูล</button>
+        </div>
+      </form>
+    </div>
   </div>
 
   <!-- 12. แบบฝึกหัด B: ฟอร์มแบบสำรวจ -->
@@ -833,12 +892,9 @@
       <span><span class="dot-fill"></span> ช่องที่ต้องพิมพ์เอง</span>
     </div>
     <div class="code-wrap">
-      <div class="code-block">
-&lt;!DOCTYPE html&gt;<br>
-&lt;<span class="tg">html</span>&gt;&lt;<span class="tg">head</span>&gt;&lt;<span class="tg">base</span> <span class="at">target</span>=<span class="st">"_top"</span>&gt;&lt;/<span class="tg">head</span>&gt;<br>
-&lt;<span class="tg">body</span>&gt;<br>
-<br>
-&lt;<span class="tg">h2</span>&gt;<input class="fill" style="--w:220px" placeholder="ชื่อแบบสำรวจ">&lt;/<span class="tg">h2</span>&gt;<br>
+      <div class="no-copy-badge"><i class="fa-solid fa-lock" style="margin-right:4px;"></i>พิมพ์เองเท่านั้น</div>
+      <div class="code-block no-copy" oncontextmenu="return false">
+&lt;!DOCTYPE html&gt;<br>&lt;/<span class="tg">h2</span>&gt;<br>
 &lt;<span class="tg">p</span>&gt;<input class="fill" style="--w:220px" placeholder="คำอธิบายแบบสำรวจ">&lt;/<span class="tg">p</span>&gt;<br>
 <br>
 &lt;<span class="tg">form</span> <span class="at">action</span>=<span class="st">"<input class="fill" style="--w:200px" placeholder="URL ปลายทาง">"</span> <span class="at">method</span>=<span class="st">"post"</span>&gt;<br>
@@ -885,11 +941,70 @@
     <div class="note info" style="margin-top:10px;">
       <i class="fa-solid fa-trophy" style="color:#d97706;margin-right:6px;"></i><strong>Bonus:</strong> เพิ่ม <code>type="date"</code> สำหรับวันที่ส่งแบบสำรวจ และ <code>type="file"</code> สำหรับแนบหลักฐานรูปถ่าย
     </div>
+    <div class="preview-area" style="margin-top:16px;">
+      <div class="form-title"><i class="fa-solid fa-eye" style="margin-right:8px;"></i>ตัวอย่างผลลัพธ์ — ฟอร์มแบบสำรวจความพึงพอใจ</div>
+      <form onsubmit="alert('ส่งแบบสำรวจสำเร็จ! ขอบคุณสำหรับความคิดเห็น'); return false;">
+        <div class="field-group">
+          <label for="ex12-name">ชื่อ-นามสกุล <span style="color:#dc2626">*</span></label>
+          <input type="text" id="ex12-name" placeholder="พิมพ์ชื่อ-นามสกุล" required>
+        </div>
+        <div class="field-group">
+          <label for="ex12-subject">วิชาที่ประเมิน</label>
+          <select id="ex12-subject">
+            <option value="web">การพัฒนาเว็บแอพสมัยใหม่</option>
+            <option value="ai">Generative AI</option>
+            <option value="cs">วิทยาการคำนวณ</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label>ความพึงพอใจโดยรวม</label>
+          <div class="radio-group">
+            <label><input type="radio" name="ex12-rating" value="5"> มากที่สุด</label>
+            <label><input type="radio" name="ex12-rating" value="4" checked> มาก</label>
+            <label><input type="radio" name="ex12-rating" value="3"> ปานกลาง</label>
+          </div>
+        </div>
+        <div class="field-group">
+          <label for="ex12-range">คะแนนสิ่งที่ต้องปรับปรุง (1–10)</label>
+          <input type="range" id="ex12-range" min="1" max="10" value="5" style="width:100%; margin-top:6px;">
+        </div>
+        <div class="field-group">
+          <label>หัวข้อที่ชอบ</label>
+          <div class="check-group">
+            <label><input type="checkbox" value="html" checked> HTML/CSS</label>
+            <label><input type="checkbox" value="js"> JavaScript</label>
+            <label><input type="checkbox" value="form" checked> Form</label>
+          </div>
+        </div>
+        <div class="field-group">
+          <label for="ex12-date">วันที่ส่งแบบสำรวจ</label>
+          <input type="date" id="ex12-date">
+        </div>
+        <div class="field-group">
+          <label for="ex12-suggest">ข้อเสนอแนะ</label>
+          <textarea id="ex12-suggest" rows="3" placeholder="พิมพ์ข้อเสนอแนะ..."></textarea>
+        </div>
+        <div style="margin-top:8px;">
+          <button type="submit" style="background:#16a34a;color:#fff;border:none;padding:8px 20px;border-radius:6px;font-family:Sarabun,sans-serif;font-size:14px;font-weight:600;cursor:pointer;margin-right:8px;"><i class="fa-solid fa-paper-plane" style="margin-right:6px;"></i>ส่งแบบสำรวจ</button>
+          <button type="reset" style="background:#f0fdf4;color:#15803d;border:1px solid #86efac;padding:8px 20px;border-radius:6px;font-family:Sarabun,sans-serif;font-size:14px;font-weight:600;cursor:pointer;"><i class="fa-solid fa-rotate-left" style="margin-right:6px;"></i>ล้างข้อมูล</button>
+        </div>
+      </form>
+    </div>
+  </div>
   </div>
 
 </main>
 
 <footer><i class="fa-solid fa-school" style="margin-right:6px;color:#86efac;"></i>เอกสารประกอบการเรียน — วิชาการพัฒนาเว็บแอพสมัยใหม่ โรงเรียนจอมทอง</footer>
+
+<script>
+  document.querySelectorAll('.no-copy').forEach(function(block) {
+    block.addEventListener('keydown', function(e) {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'c') { e.preventDefault(); }
+    });
+    block.addEventListener('dragstart', function(e) { e.preventDefault(); });
+  });
+</script>
 
 </body>
 </html>
