@@ -791,7 +791,118 @@
   <!-- 11. แบบฝึกหัด A: ฟอร์มสมัครสมาชิก -->
   <div class="section">
     <div class="section-title lime"><i class="fa-solid fa-pencil" style="color:#65a30d;margin-right:8px;"></i>11. แบบฝึกหัด A — ฟอร์มสมัครสมาชิกชมรม</div>
-    <p style="font-size:14px; margin-bottom:14px; color:#445;">สร้างฟอร์มสมัครสมาชิกชมรมที่ชอบ — เติมช่องสีเขียวให้ครบ</p>
+    <p style="font-size:14px; margin-bottom:14px; color:#445;">ดูโค้ดตัวอย่างด้านล่าง แล้วพิมพ์ในช่องกรอกให้ครบ — เปลี่ยนข้อมูลให้เป็นชมรมของตัวเอง</p>
+
+    <p style="font-size:13px; font-weight:700; color:#166534; margin-bottom:8px;"><i class="fa-solid fa-code" style="margin-right:6px;"></i>โค้ดตัวอย่าง — ศึกษาแล้วพิมพ์เองในช่องด้านล่าง</p>
+    <div class="code-wrap">
+      <div class="no-copy-badge"><i class="fa-solid fa-lock" style="margin-right:4px;"></i>พิมพ์เองเท่านั้น</div>
+      <div class="code-block no-copy" oncontextmenu="return false">
+&lt;!DOCTYPE html&gt;<br>
+&lt;<span class="tg">html</span>&gt;<br>
+&lt;<span class="tg">head</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tg">base</span> <span class="at">target</span>=<span class="st">"_top"</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tg">style</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">body</span> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">font-family</span>: <span class="vl">sans-serif</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">max-width</span>: <span class="vl">480px</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">margin</span>: <span class="vl">30px auto</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">padding</span>: <span class="vl">0 20px</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">h2</span> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">color</span>: <span class="vl">#15803d</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">border-bottom</span>: <span class="vl">2px solid #86efac</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">padding-bottom</span>: <span class="vl">8px</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">label</span> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">display</span>: <span class="vl">block</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">font-weight</span>: <span class="vl">bold</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">margin-bottom</span>: <span class="vl">4px</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">color</span>: <span class="vl">#166534</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">input[type="text"],</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">input[type="email"],</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">select,</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">textarea</span> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">width</span>: <span class="vl">100%</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">padding</span>: <span class="vl">8px 12px</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">border</span>: <span class="vl">1px solid #86efac</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">border-radius</span>: <span class="vl">6px</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">box-sizing</span>: <span class="vl">border-box</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">margin-bottom</span>: <span class="vl">14px</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">.field</span> { <span class="pr">margin-bottom</span>: <span class="vl">14px</span>; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">input[type="submit"]</span> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">background</span>: <span class="vl">#16a34a</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">color</span>: <span class="vl">#fff</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">border</span>: <span class="vl">none</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">padding</span>: <span class="vl">9px 24px</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">border-radius</span>: <span class="vl">6px</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">cursor</span>: <span class="vl">pointer</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">font-size</span>: <span class="vl">14px</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">button[type="reset"]</span> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">background</span>: <span class="vl">#f0fdf4</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">color</span>: <span class="vl">#15803d</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">border</span>: <span class="vl">1px solid #86efac</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">padding</span>: <span class="vl">9px 24px</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">border-radius</span>: <span class="vl">6px</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">cursor</span>: <span class="vl">pointer</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">font-size</span>: <span class="vl">14px</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&lt;/<span class="tg">style</span>&gt;<br>
+&lt;/<span class="tg">head</span>&gt;<br>
+&lt;<span class="tg">body</span>&gt;<br>
+<br>
+&lt;<span class="tg">h2</span>&gt;ชมรมคอมพิวเตอร์&lt;/<span class="tg">h2</span>&gt;<br>
+<br>
+&lt;<span class="tg">form</span> <span class="at">action</span>=<span class="st">"https://script.google.com/macros/s/xxxxxxx/exec"</span> <span class="at">method</span>=<span class="st">"post"</span>&gt;<br>
+<br>
+&nbsp;&nbsp;&lt;<span class="tg">div</span> <span class="at">class</span>=<span class="st">"field"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">label</span> <span class="at">for</span>=<span class="st">"name"</span>&gt;ชื่อ-นามสกุล&lt;/<span class="tg">label</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"text"</span> <span class="at">id</span>=<span class="st">"name"</span> <span class="at">name</span>=<span class="st">"name"</span> <span class="at">placeholder</span>=<span class="st">"เช่น นายสมชาย ใจดี"</span> <span class="at">required</span>&gt;<br>
+&nbsp;&nbsp;&lt;/<span class="tg">div</span>&gt;<br>
+<br>
+&nbsp;&nbsp;&lt;<span class="tg">div</span> <span class="at">class</span>=<span class="st">"field"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">label</span> <span class="at">for</span>=<span class="st">"email"</span>&gt;อีเมล&lt;/<span class="tg">label</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"email"</span> <span class="at">id</span>=<span class="st">"email"</span> <span class="at">name</span>=<span class="st">"email"</span> <span class="at">required</span>&gt;<br>
+&nbsp;&nbsp;&lt;/<span class="tg">div</span>&gt;<br>
+<br>
+&nbsp;&nbsp;&lt;<span class="tg">div</span> <span class="at">class</span>=<span class="st">"field"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">label</span>&gt;เพศ&lt;/<span class="tg">label</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"radio"</span> <span class="at">id</span>=<span class="st">"m"</span> <span class="at">name</span>=<span class="st">"gender"</span> <span class="at">value</span>=<span class="st">"male"</span>&gt; &lt;<span class="tg">label</span> <span class="at">for</span>=<span class="st">"m"</span> <span class="at">style</span>=<span class="st">"display:inline;font-weight:normal"</span>&gt;ชาย&lt;/<span class="tg">label</span>&gt;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"radio"</span> <span class="at">id</span>=<span class="st">"f"</span> <span class="at">name</span>=<span class="st">"gender"</span> <span class="at">value</span>=<span class="st">"female"</span>&gt; &lt;<span class="tg">label</span> <span class="at">for</span>=<span class="st">"f"</span> <span class="at">style</span>=<span class="st">"display:inline;font-weight:normal"</span>&gt;หญิง&lt;/<span class="tg">label</span>&gt;<br>
+&nbsp;&nbsp;&lt;/<span class="tg">div</span>&gt;<br>
+<br>
+&nbsp;&nbsp;&lt;<span class="tg">div</span> <span class="at">class</span>=<span class="st">"field"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">label</span> <span class="at">for</span>=<span class="st">"grade"</span>&gt;ระดับชั้น&lt;/<span class="tg">label</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">select</span> <span class="at">id</span>=<span class="st">"grade"</span> <span class="at">name</span>=<span class="st">"grade"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">option</span> <span class="at">value</span>=<span class="st">"m4"</span>&gt;ม.4&lt;/<span class="tg">option</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">option</span> <span class="at">value</span>=<span class="st">"m5"</span>&gt;ม.5&lt;/<span class="tg">option</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">option</span> <span class="at">value</span>=<span class="st">"m6"</span>&gt;ม.6&lt;/<span class="tg">option</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="tg">select</span>&gt;<br>
+&nbsp;&nbsp;&lt;/<span class="tg">div</span>&gt;<br>
+<br>
+&nbsp;&nbsp;&lt;<span class="tg">div</span> <span class="at">class</span>=<span class="st">"field"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">label</span>&gt;ทักษะที่มี&lt;/<span class="tg">label</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"checkbox"</span> <span class="at">name</span>=<span class="st">"skill"</span> <span class="at">value</span>=<span class="st">"coding"</span>&gt; เขียนโค้ด&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"checkbox"</span> <span class="at">name</span>=<span class="st">"skill"</span> <span class="at">value</span>=<span class="st">"design"</span>&gt; ออกแบบ<br>
+&nbsp;&nbsp;&lt;/<span class="tg">div</span>&gt;<br>
+<br>
+&nbsp;&nbsp;&lt;<span class="tg">div</span> <span class="at">class</span>=<span class="st">"field"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">label</span> <span class="at">for</span>=<span class="st">"bio"</span>&gt;แนะนำตัวเอง&lt;/<span class="tg">label</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">textarea</span> <span class="at">id</span>=<span class="st">"bio"</span> <span class="at">name</span>=<span class="st">"bio"</span> <span class="at">rows</span>=<span class="st">"4"</span> <span class="at">placeholder</span>=<span class="st">"แนะนำตัวเองสั้นๆ..."</span>&gt;&lt;/<span class="tg">textarea</span>&gt;<br>
+&nbsp;&nbsp;&lt;/<span class="tg">div</span>&gt;<br>
+<br>
+&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"submit"</span> <span class="at">value</span>=<span class="st">"สมัครสมาชิก"</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tg">button</span> <span class="at">type</span>=<span class="st">"reset"</span>&gt;ล้างข้อมูล&lt;/<span class="tg">button</span>&gt;<br>
+<br>
+&lt;/<span class="tg">form</span>&gt;<br>
+&lt;/<span class="tg">body</span>&gt;<br>
+&lt;/<span class="tg">html</span>&gt;
+      </div>
+    </div>
+
+    <p style="font-size:13px; font-weight:700; color:#166534; margin:18px 0 8px;"><i class="fa-solid fa-keyboard" style="margin-right:6px;"></i>พิมพ์โค้ดของตัวเอง — เปลี่ยนข้อมูลให้เป็นชมรมที่ชอบ</p>
     <div class="ex-legend">
       <span><span class="dot-fill"></span> ช่องที่ต้องพิมพ์เอง</span>
     </div>
@@ -888,6 +999,124 @@
   <div class="section">
     <div class="section-title lime"><i class="fa-solid fa-chart-bar" style="color:#65a30d;margin-right:8px;"></i>12. แบบฝึกหัด B — ฟอร์มแบบสำรวจความพึงพอใจ</div>
     <p style="font-size:14px; margin-bottom:14px; color:#445;">สร้างแบบสอบถามความพึงพอใจในวิชาที่เรียน — ใช้ input ให้ครบอย่างน้อย 5 type</p>
+
+    <p style="font-size:13px; font-weight:700; color:#166534; margin-bottom:8px;"><i class="fa-solid fa-code" style="margin-right:6px;"></i>โค้ดตัวอย่าง — ศึกษาแล้วพิมพ์เองในช่องด้านล่าง</p>
+    <div class="code-wrap">
+      <div class="no-copy-badge"><i class="fa-solid fa-lock" style="margin-right:4px;"></i>พิมพ์เองเท่านั้น</div>
+      <div class="code-block no-copy" oncontextmenu="return false">
+&lt;!DOCTYPE html&gt;<br>
+&lt;<span class="tg">html</span>&gt;<br>
+&lt;<span class="tg">head</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tg">base</span> <span class="at">target</span>=<span class="st">"_top"</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tg">style</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">body</span> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">font-family</span>: <span class="vl">sans-serif</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">max-width</span>: <span class="vl">480px</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">margin</span>: <span class="vl">30px auto</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">padding</span>: <span class="vl">0 20px</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">h2</span> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">color</span>: <span class="vl">#15803d</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">border-bottom</span>: <span class="vl">2px solid #86efac</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">padding-bottom</span>: <span class="vl">8px</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">label</span> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">display</span>: <span class="vl">block</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">font-weight</span>: <span class="vl">bold</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">margin-bottom</span>: <span class="vl">4px</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">color</span>: <span class="vl">#166534</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">input[type="text"],</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">input[type="date"],</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">select,</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">textarea</span> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">width</span>: <span class="vl">100%</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">padding</span>: <span class="vl">8px 12px</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">border</span>: <span class="vl">1px solid #86efac</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">border-radius</span>: <span class="vl">6px</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">box-sizing</span>: <span class="vl">border-box</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">margin-bottom</span>: <span class="vl">14px</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">input[type="range"]</span> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">width</span>: <span class="vl">100%</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">margin-bottom</span>: <span class="vl">14px</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">.field</span> { <span class="pr">margin-bottom</span>: <span class="vl">14px</span>; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sl">input[type="submit"]</span> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">background</span>: <span class="vl">#16a34a</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">color</span>: <span class="vl">#fff</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">border</span>: <span class="vl">none</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">padding</span>: <span class="vl">9px 24px</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">border-radius</span>: <span class="vl">6px</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">cursor</span>: <span class="vl">pointer</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">font-size</span>: <span class="vl">14px</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&lt;/<span class="tg">style</span>&gt;<br>
+&lt;/<span class="tg">head</span>&gt;<br>
+&lt;<span class="tg">body</span>&gt;<br>
+<br>
+&lt;<span class="tg">h2</span>&gt;แบบสำรวจความพึงพอใจ&lt;/<span class="tg">h2</span>&gt;<br>
+&lt;<span class="tg">p</span>&gt;กรุณาตอบแบบสอบถามตามความเป็นจริง&lt;/<span class="tg">p</span>&gt;<br>
+<br>
+&lt;<span class="tg">form</span> <span class="at">action</span>=<span class="st">"https://script.google.com/macros/s/xxxxxxx/exec"</span> <span class="at">method</span>=<span class="st">"post"</span>&gt;<br>
+<br>
+&nbsp;&nbsp;<span class="cm">&lt;!-- 1. text --&gt;</span><br>
+&nbsp;&nbsp;&lt;<span class="tg">div</span> <span class="at">class</span>=<span class="st">"field"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">label</span>&gt;ชื่อ-นามสกุล&lt;/<span class="tg">label</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"text"</span> <span class="at">name</span>=<span class="st">"name"</span> <span class="at">required</span>&gt;<br>
+&nbsp;&nbsp;&lt;/<span class="tg">div</span>&gt;<br>
+<br>
+&nbsp;&nbsp;<span class="cm">&lt;!-- 2. select --&gt;</span><br>
+&nbsp;&nbsp;&lt;<span class="tg">div</span> <span class="at">class</span>=<span class="st">"field"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">label</span>&gt;วิชาที่ประเมิน&lt;/<span class="tg">label</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">select</span> <span class="at">name</span>=<span class="st">"subject"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">option</span> <span class="at">value</span>=<span class="st">"web"</span>&gt;การพัฒนาเว็บแอพสมัยใหม่&lt;/<span class="tg">option</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">option</span> <span class="at">value</span>=<span class="st">"ai"</span>&gt;Generative AI&lt;/<span class="tg">option</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="tg">select</span>&gt;<br>
+&nbsp;&nbsp;&lt;/<span class="tg">div</span>&gt;<br>
+<br>
+&nbsp;&nbsp;<span class="cm">&lt;!-- 3. radio --&gt;</span><br>
+&nbsp;&nbsp;&lt;<span class="tg">div</span> <span class="at">class</span>=<span class="st">"field"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">label</span>&gt;ความพึงพอใจโดยรวม&lt;/<span class="tg">label</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"radio"</span> <span class="at">name</span>=<span class="st">"rating"</span> <span class="at">value</span>=<span class="st">"5"</span>&gt; มากที่สุด&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"radio"</span> <span class="at">name</span>=<span class="st">"rating"</span> <span class="at">value</span>=<span class="st">"4"</span>&gt; มาก&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"radio"</span> <span class="at">name</span>=<span class="st">"rating"</span> <span class="at">value</span>=<span class="st">"3"</span>&gt; ปานกลาง<br>
+&nbsp;&nbsp;&lt;/<span class="tg">div</span>&gt;<br>
+<br>
+&nbsp;&nbsp;<span class="cm">&lt;!-- 4. range --&gt;</span><br>
+&nbsp;&nbsp;&lt;<span class="tg">div</span> <span class="at">class</span>=<span class="st">"field"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">label</span>&gt;คะแนนสิ่งที่ต้องปรับปรุง (1–10)&lt;/<span class="tg">label</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"range"</span> <span class="at">name</span>=<span class="st">"improve"</span> <span class="at">min</span>=<span class="st">"1"</span> <span class="at">max</span>=<span class="st">"10"</span>&gt;<br>
+&nbsp;&nbsp;&lt;/<span class="tg">div</span>&gt;<br>
+<br>
+&nbsp;&nbsp;<span class="cm">&lt;!-- 5. checkbox --&gt;</span><br>
+&nbsp;&nbsp;&lt;<span class="tg">div</span> <span class="at">class</span>=<span class="st">"field"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">label</span>&gt;หัวข้อที่ชอบ&lt;/<span class="tg">label</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"checkbox"</span> <span class="at">name</span>=<span class="st">"topic"</span> <span class="at">value</span>=<span class="st">"html"</span>&gt; HTML/CSS&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"checkbox"</span> <span class="at">name</span>=<span class="st">"topic"</span> <span class="at">value</span>=<span class="st">"form"</span>&gt; Form<br>
+&nbsp;&nbsp;&lt;/<span class="tg">div</span>&gt;<br>
+<br>
+&nbsp;&nbsp;<span class="cm">&lt;!-- 6. date --&gt;</span><br>
+&nbsp;&nbsp;&lt;<span class="tg">div</span> <span class="at">class</span>=<span class="st">"field"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">label</span>&gt;วันที่ส่งแบบสำรวจ&lt;/<span class="tg">label</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"date"</span> <span class="at">name</span>=<span class="st">"survey_date"</span>&gt;<br>
+&nbsp;&nbsp;&lt;/<span class="tg">div</span>&gt;<br>
+<br>
+&nbsp;&nbsp;<span class="cm">&lt;!-- 7. textarea --&gt;</span><br>
+&nbsp;&nbsp;&lt;<span class="tg">div</span> <span class="at">class</span>=<span class="st">"field"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">label</span>&gt;ข้อเสนอแนะ&lt;/<span class="tg">label</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tg">textarea</span> <span class="at">name</span>=<span class="st">"suggest"</span> <span class="at">rows</span>=<span class="st">"3"</span> <span class="at">placeholder</span>=<span class="st">"พิมพ์ข้อเสนอแนะ..."</span>&gt;&lt;/<span class="tg">textarea</span>&gt;<br>
+&nbsp;&nbsp;&lt;/<span class="tg">div</span>&gt;<br>
+<br>
+&nbsp;&nbsp;&lt;<span class="tg">input</span> <span class="at">type</span>=<span class="st">"submit"</span> <span class="at">value</span>=<span class="st">"ส่งแบบสำรวจ"</span>&gt;<br>
+<br>
+&lt;/<span class="tg">form</span>&gt;<br>
+&lt;/<span class="tg">body</span>&gt;<br>
+&lt;/<span class="tg">html</span>&gt;
+      </div>
+    </div>
+
+    <p style="font-size:13px; font-weight:700; color:#166534; margin:18px 0 8px;"><i class="fa-solid fa-keyboard" style="margin-right:6px;"></i>พิมพ์โค้ดของตัวเอง — เปลี่ยนวิชาและหัวข้อให้เป็นของตัวเอง</p>
     <div class="ex-legend">
       <span><span class="dot-fill"></span> ช่องที่ต้องพิมพ์เอง</span>
     </div>
